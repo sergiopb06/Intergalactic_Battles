@@ -5,7 +5,7 @@ class Pulsar{
         int left = 0;
         int right = size - 1;
 
-        while(left < right){
+        while(left <= right){
             int mid = (left + right) / 2;
             if(list[mid] == target){
                 return mid;

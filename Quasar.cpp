@@ -3,23 +3,23 @@
 template <typename T>
 
 class Quasar{
-    class node{
+    class Node{
         public:
             T data; 
-            node* left;
-            node* right;
+            Node* left;
+            Node* right;
             int height;
     }
 
-    node* root = NULL;
+    Node* root = NULL;
 
-    node* searchUtility(node* current, T value){
+    Node* searchUtility(Node* current, T value){
         if(current == NULL){
             return false;
         }else if(current.data == value){
             return current;
         }else if(value < current.data){
-            return searchUtility(current.left, value);
+            return searchUtility(currentleft, value);
         }else{
             return searchUtility(current.right, value);
         }
