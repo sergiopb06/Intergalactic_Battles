@@ -90,7 +90,7 @@ public:
 
                 break;
 
-            case 4: //ATK
+            case 4: {//ATK
                 std::cout << "Attacking ship Row: ";
                 std::cin >> fromR;
                 std::cout << std::endl << "Attacking ship Column:";
@@ -116,8 +116,8 @@ public:
                     std::cout << "Attack hit enemy ship at selected coordinates..." << std::endl;
                     break;
                 }
-
-
+                break;
+            }
             default:
                 std::cout << "Invalid Option" << std::endl;
                 continue;

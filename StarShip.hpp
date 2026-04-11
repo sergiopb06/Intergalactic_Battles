@@ -1,4 +1,5 @@
 #pragma once 
+#include <cstdlib>
 #include "IStarShipCore.hpp"
 #include "Constants.hpp"
 #include "Nova.hpp"
