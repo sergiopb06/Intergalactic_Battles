@@ -1,3 +1,4 @@
+#pragma once
 #include "IStarShipCore.hpp"
 #include <set>
 #include <string>
