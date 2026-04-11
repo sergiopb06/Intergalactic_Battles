@@ -1,5 +1,5 @@
 #pragma once
-#include "IStarshipCore.hpp"
+#include "IStarShipCore.hpp"
 
 
 class Vortix : public IStarShipCore{
