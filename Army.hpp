@@ -16,7 +16,7 @@ private:
 
 
 public:
-    Army(std::string name, int creds){
+    Army(std::string name){
         this->playerName = name;
         this->credits = CREDITS_CNST;
 
@@ -26,6 +26,16 @@ public:
             }
         }
     }
+
+
+    std::string getName() const {
+        return playerName;
+    }
+    
+    int getCredits() const{
+        return credits;
+    }
+
 
     Starship* getShip(int row, int col) {
         if(grid[row][col] != NULL && grid[row][col]->isAlive()){
