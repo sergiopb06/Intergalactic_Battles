@@ -7,7 +7,8 @@ private:
     std::set<int> data_;
 
 public:
-
+    Aegis() {}
+    
     void insert(int value) override {
         data_.insert(value);
     }

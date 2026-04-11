@@ -1,12 +1,11 @@
 #pragma once
 #include "IStarshipCore.hpp"
 
-template <typename T>
 
 class Nova : public IStarShipCore{
     class Node {
         public:
-            T data;
+            int data;
             Node* next;
     };
     
@@ -91,5 +90,23 @@ public:
 
     std::string algorithmName() const override {
         return "Linear Search";
+    }
+
+
+    int findMax() override {
+        if (start == NULL) {
+            return -1;
+        }
+
+        Node* current = start;
+        int max = current->data; 
+
+        while (current != NULL) {  
+            if (current->data > max) {   
+                max = current->data;
+            }
+            current = current->next;
+            }
+        return max;  
     }
 };
