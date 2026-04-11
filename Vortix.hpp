@@ -1,11 +1,11 @@
 #pragma once
 #include "IStarshipCore.hpp"
 
-template <typename T>
+
 class Vortix : public IStarShipCore{
     class Node {
         public:
-            T data;
+            int data;
             Node* left;
             Node* right;
 
@@ -94,7 +94,7 @@ public:
             //INSERT LEFT
             if(value < current->data) {
                 if(current->left == NULL){
-                    current->left == newNode;
+                    current->left = newNode;
                     size_++;
                     return;
                 }
@@ -109,7 +109,7 @@ public:
                     size_++;
                     return;
                 }
-                current = current->left;
+                current = current->right;
             }
 
 
