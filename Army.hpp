@@ -1,4 +1,5 @@
 #pragma once
+#include "Constants.hpp"
 #include "StarShip.hpp"
 #include <vector>
 #include <string>
@@ -31,7 +32,7 @@ public:
     std::string getName() const {
         return playerName;
     }
-    
+
     int getCredits() const{
         return credits;
     }
@@ -154,24 +155,24 @@ public:
     }
 
 
-    bool attack(int fromR, int fromC, int toR, int toC, Army& enemy) {
+    int attack(int fromR, int fromC, int toR, int toC, Army& enemy) {
         if(toR < 0 || toR >= GRID_SIZE || toC < 0 || toC >= GRID_SIZE){
-            return false;
+            return -1;
         }
 
         Starship* attacker = getShip(fromR, fromC);
         if(attacker == NULL) {
-            return false;
+            return -1;
         }
 
         Starship* opponent = enemy.getShip(toR, toC);
         if(opponent == NULL){
-            return false;
+            return 0;
         }
 
         int dmg = attacker->atk();
         opponent->getHit(dmg);
-        return true;
+        return 1;
     }
 
 };
