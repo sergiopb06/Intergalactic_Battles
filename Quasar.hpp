@@ -11,17 +11,41 @@ class Quasar : public IStarShipCore {
         int height;
     };
 
-    Node* root = NULL;
-    int size_ = 0;
+    
 
-    public: 
+    public:
+
+    Node* root_ = NULL;
+    int size_ = 0;
+    
+
+    void insert(int value){
+        root_ = insert(root_, value);
+    }
+
+    void remove(int value){
+        root_ = remove(root_, value);
+    }
+
+    int search(int value){
+        int iterations_ = 0;
+        return search(root_, value, iterations_);
+    }
+
+    int findMax(){
+        return findMax(root_);
+    }
+
+    private:
 
     int findMax(Node* current){
+        if(current == NULL){
+            throw std::runtime_error("Cannot findMAX on empty tree");
+        }
         if(current->right == NULL){
             return current->data;
-        }else{
-            return findMax(current->right);
         }
+        return findMax(current->right);
     }
 
     int height(Node* current){ 
@@ -57,6 +81,7 @@ class Quasar : public IStarShipCore {
     }
 
     Node* insert(Node* current, int value){
+        
         if(current == NULL){
             Node* newNode = new Node;
             newNode->data = value;
@@ -96,7 +121,9 @@ class Quasar : public IStarShipCore {
     }
 
     Node* remove(Node* current, int value){
-        if(current == NULL) return NULL;
+        if(current == NULL){
+           return NULL; 
+        } 
 
         if(value < current->data){
             current->left = remove(current->left, value);
@@ -170,6 +197,7 @@ class Quasar : public IStarShipCore {
     }
 
     std::string algorithmName() const override {
-        return "TREE ALV";
+        return "TREE AVL";
     }
+
 };
