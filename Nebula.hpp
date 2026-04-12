@@ -5,17 +5,29 @@
 #include <stdexcept>
 #include <string>
 
-class NebulaEngine : public IStarShipCore {
+class Nebula : public IStarShipCore {
 private:
     std::vector<int> heap_; 
 
-    int parent(int i)   { return (i - 1) / 2; }
-    int leftChild(int i){ return 2 * i + 1;   }
-    int rightChild(int i){ return 2 * i + 2;  }
+    int parent(int i) { 
+        return (i - 1) / 2;
+    }
+    int leftChild(int i) {
+        return 2 * i + 1;
+    }
+    int rightChild(int i) {
+        return 2 * i + 2;
+    }
 
-    bool hasParent(int i)     { return i > 0; }
-    bool hasLeft(int i)       { return leftChild(i)  < (int)heap_.size(); }
-    bool hasRight(int i)      { return rightChild(i) < (int)heap_.size(); }
+    bool hasParent(int i) {
+        return i > 0;
+    }
+    bool hasLeft(int i) {
+        return leftChild(i) < (int)heap_.size();
+    }
+    bool hasRight(int i) {
+        return rightChild(i) < (int)heap_.size();
+    }
 
     void heapifyUp(int i) {
         while (hasParent(i) && heap_[i] < heap_[parent(i)]) {
