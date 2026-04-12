@@ -45,6 +45,10 @@ public:
 
     }
 
+    ~Starship() {
+        delete core;
+    }
+
     void upgrade() {
         int max = core->findMax();
         core->remove(max);

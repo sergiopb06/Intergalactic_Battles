@@ -33,6 +33,7 @@ public:
 
 
     void play(Army& currentP, Army& enemy) {
+        currentP.addIncome();
         int ap = AP_PER_TURN;
         int type, row, col, fromR, fromC, toR, toC ;
         while(ap > 0){
