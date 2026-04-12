@@ -5,7 +5,7 @@ template <typename T>
 
 class Pulsar : public IStarShipCore{
 
-    int _size;
+    int _size = 0;
 
     public: 
 
@@ -47,11 +47,18 @@ class Pulsar : public IStarShipCore{
         size_--;
     }
 
-    int size() comst override{
+    int findMax(int list[]) override{
+        if(size_ == 0){
+            return -1;
+        }
+        return list[size_ - 1];
+    }    
+    
+    int size() const override{
         return size_;
     }
 
     std::string algorithmName() const override{
-        retgurn "Binary Search"
+        return "Binary Search";
     }
 };
