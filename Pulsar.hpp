@@ -12,12 +12,13 @@ class Pulsar : public IStarShipCore{
         int search(int target, int list[], int size){
             int left = 0; 
             int right = size - 1;
+            int iterations = 0;
 
             while (left < right){
                 int mid = (left + right) / 2;
-
+                iterations++;
                 if(list[mid] == target){
-                    return mid;
+                    return iterations;
                 }else if(target < list[mid]){
                     right = mid + 1;
                 }else{

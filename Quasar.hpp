@@ -157,17 +157,21 @@ public:
         return current;
     }
 
-    Node* search(Node* current, T value) {
+    int search(Node* current, T value, int& iterations) {
+
     if (current == NULL) {
         return nullptr;
     }
+
+    iterations++;
+
     if (current->data == value){
-        return ;
+        return iterations;
     } 
     if (value < current->data){
-        return searchUtility(current->left, value);
+        return search(current->left, value);
     }else{ 
-        return searchUtility(current->right, value);
+        return search(current->right, value);
         }
     }
 
