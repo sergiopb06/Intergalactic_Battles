@@ -116,7 +116,7 @@ public:
                     std::cout << "Attack hit enemy ship at selected coordinates..." << std::endl;
                     break;
                 }
-                break;
+
             }
             default:
                 std::cout << "Invalid Option" << std::endl;

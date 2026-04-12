@@ -5,9 +5,9 @@
 #include "Nova.hpp"
 #include "Aegis.hpp"
 #include "Vortix.hpp"
-//#include "Pulsar.hpp"
-//#include "Quasar.hpp"
-//#include "Nebula.hpp"
+#include "Pulsar.hpp"
+#include "Quasar.hpp"
+#include "Nebula.hpp"
 
 class Starship {
 private:

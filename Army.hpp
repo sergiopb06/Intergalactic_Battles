@@ -75,19 +75,19 @@ public:
                 price = NOVA_PRICE;
                 break;
             case 2:
-                //core = new Pulsar();
+                core = new Pulsar();
                 price = PULSAR_PRICE;
                 break;
             case 3:
-                //core = new Aegis();
+                core = new Aegis();
                 price = AEGIS_PRICE;
                 break;
             case 4:
-                //core = new Quasar();
+                core = new Quasar();
                 price = QUASAR_PRICE;
                 break;
             case 5:
-                //core = new Nebula();
+                core = new Nebula();
                 price = NEBULA_PRICE;
                 break;
             case 6:

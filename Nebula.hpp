@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <string>
 
-class NebulaEngine : public IStarShipCore {
+class Nebula : public IStarShipCore {
 private:
     std::vector<int> heap_; 
 
