@@ -25,6 +25,14 @@ class Pulsar : public IStarShipCore{
         int findMax(){
             return findMax(list_);
         }
+
+        int size(){
+            return size();
+        }
+
+        std::string algorithmName(){
+            return algorithmName();
+        }
         
     private: 
 

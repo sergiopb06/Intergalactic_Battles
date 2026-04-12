@@ -15,189 +15,197 @@ class Quasar : public IStarShipCore {
 
     public:
 
-    Node* root_ = NULL;
-    int size_ = 0;
-    
+        Node* root_ = NULL;
+        int size_ = 0;
+        
 
-    void insert(int value){
-        root_ = insert(root_, value);
-    }
+        void insert(int value){
+            root_ = insert(root_, value);
+        }
 
-    void remove(int value){
-        root_ = remove(root_, value);
-    }
+        void remove(int value){
+            root_ = remove(root_, value);
+        }
 
-    int search(int value){
-        int iterations_ = 0;
-        return search(root_, value, iterations_);
-    }
+        int search(int value){
+            int iterations_ = 0;
+            return search(root_, value, iterations_);
+        }
 
-    int findMax(){
-        return findMax(root_);
-    }
+        int findMax(){
+            return findMax(root_);
+        }
+
+        int size(){
+            return size();
+        }
+
+        std::string algorithmName(){
+            return algorithmName();
+        }
 
     private:
 
-    int findMax(Node* current){
-        if(current == NULL){
-            throw std::runtime_error("Cannot findMAX on empty tree");
+        int findMax(Node* current){
+            if(current == NULL){
+                throw std::runtime_error("Cannot findMAX on empty tree");
+            }
+            if(current->right == NULL){
+                return current->data;
+            }
+            return findMax(current->right);
         }
-        if(current->right == NULL){
-            return current->data;
+
+        int height(Node* current){ 
+            if(current == NULL){
+                return 0;
+            }
+            return current->height;
         }
-        return findMax(current->right);
-    }
 
-    int height(Node* current){ 
-        if(current == NULL){
-            return 0;
-        }
-        return current->height;
-    }
-
-    Node* rightRotation(Node* current){
-        Node* newNode = current->left;
-        current->left = newNode->right;
-        newNode->right = current;
-        current->height = 1 + std::max(height(current->left), height(current->right));
-        newNode->height = 1 + std::max(height(newNode->left), height(newNode->right));
-        return newNode;
-    }
-
-    Node* leftRotation(Node* current){
-        Node* newNode = current->right;
-        current->right = newNode->left;
-        newNode->left = current;
-        current->height = 1 + std::max(height(current->left), height(current->right));
-        newNode->height = 1 + std::max(height(newNode->left), height(newNode->right));
-        return newNode;
-    }
-
-    void inOrderUtility(Node* current){ 
-        if(current == NULL) return;
-        inOrderUtility(current->left);
-        std::cout << current->data << " ";
-        inOrderUtility(current->right);
-    }
-
-    Node* insert(Node* current, int value){
-        
-        if(current == NULL){
-            Node* newNode = new Node;
-            newNode->data = value;
-            newNode->right = NULL;
-            newNode->left = NULL;
-            newNode->height = 1;
-            size_++;
+        Node* rightRotation(Node* current){
+            Node* newNode = current->left;
+            current->left = newNode->right;
+            newNode->right = current;
+            current->height = 1 + std::max(height(current->left), height(current->right));
+            newNode->height = 1 + std::max(height(newNode->left), height(newNode->right));
             return newNode;
         }
 
-        if(value < current->data){
-            current->left = insert(current->left, value);
-        }else if(value > current->data){
-            current->right = insert(current->right, value);
+        Node* leftRotation(Node* current){
+            Node* newNode = current->right;
+            current->right = newNode->left;
+            newNode->left = current;
+            current->height = 1 + std::max(height(current->left), height(current->right));
+            newNode->height = 1 + std::max(height(newNode->left), height(newNode->right));
+            return newNode;
         }
 
-        current->height = 1 + std::max(height(current->left), height(current->right));
-        int balance = height(current->left) - height(current->right);
-        
-        if(balance > 1){
-            if(value > current->left->data){
-                current->left = leftRotation(current->left);
-                return rightRotation(current);
-            }else{
-                return rightRotation(current);
-            }
-        }else if(balance < -1){
-            if(value < current->right->data){
-                current->right = rightRotation(current->right);
-                return leftRotation(current);
-            }else{
-                return leftRotation(current);
-            }
+        void inOrderUtility(Node* current){ 
+            if(current == NULL) return;
+            inOrderUtility(current->left);
+            std::cout << current->data << " ";
+            inOrderUtility(current->right);
         }
 
-        return current;
-    }
+        Node* insert(Node* current, int value){
+            
+            if(current == NULL){
+                Node* newNode = new Node;
+                newNode->data = value;
+                newNode->right = NULL;
+                newNode->left = NULL;
+                newNode->height = 1;
+                size_++;
+                return newNode;
+            }
 
-    Node* remove(Node* current, int value){
-        if(current == NULL){
-           return NULL; 
-        } 
+            if(value < current->data){
+                current->left = insert(current->left, value);
+            }else if(value > current->data){
+                current->right = insert(current->right, value);
+            }
 
-        if(value < current->data){
-            current->left = remove(current->left, value);
-        }else if(value > current->data){ 
-            current->right = remove(current->right, value);
-        }else{ 
-            if(current->left == NULL && current->right == NULL){
-                delete current;
-                size_--;
-                return NULL;
-            }else if(current->left != NULL && current->right != NULL){
-                int max = findMax(current->left);
-                current->data = max;
-                current->left = remove(current->left, max);
-            }else{ 
-                Node* child = current;
-                if(current->right != NULL){
-                    current = current->right;
+            current->height = 1 + std::max(height(current->left), height(current->right));
+            int balance = height(current->left) - height(current->right);
+            
+            if(balance > 1){
+                if(value > current->left->data){
+                    current->left = leftRotation(current->left);
+                    return rightRotation(current);
                 }else{
-                    current = current->left;
+                    return rightRotation(current);
                 }
-                child->left = NULL;
-                child->right = NULL;
-                delete child;
-                size_--;
+            }else if(balance < -1){
+                if(value < current->right->data){
+                    current->right = rightRotation(current->right);
+                    return leftRotation(current);
+                }else{
+                    return leftRotation(current);
+                }
             }
+
+            return current;
         }
 
-        if(current == NULL) return NULL;
+        Node* remove(Node* current, int value){
+            if(current == NULL){
+            return NULL; 
+            } 
 
-        current->height = 1 + std::max(height(current->left), height(current->right));
-        int balance = height(current->left) - height(current->right);
-
-        if(balance > 1){
-            if(height(current->left) >= height(current->right)){
-                return rightRotation(current);
-            }else{
-                current->left = leftRotation(current->left);
-                return rightRotation(current);
+            if(value < current->data){
+                current->left = remove(current->left, value);
+            }else if(value > current->data){ 
+                current->right = remove(current->right, value);
+            }else{ 
+                if(current->left == NULL && current->right == NULL){
+                    delete current;
+                    size_--;
+                    return NULL;
+                }else if(current->left != NULL && current->right != NULL){
+                    int max = findMax(current->left);
+                    current->data = max;
+                    current->left = remove(current->left, max);
+                }else{ 
+                    Node* child = current;
+                    if(current->right != NULL){
+                        current = current->right;
+                    }else{
+                        current = current->left;
+                    }
+                    child->left = NULL;
+                    child->right = NULL;
+                    delete child;
+                    size_--;
+                }
             }
-        }else if(balance < -1){
-            if(height(current->right) >= height(current->left)){
-                return leftRotation(current);
-            }else{
-                current->right = rightRotation(current->right);
-                return leftRotation(current);
+
+            if(current == NULL) return NULL;
+
+            current->height = 1 + std::max(height(current->left), height(current->right));
+            int balance = height(current->left) - height(current->right);
+
+            if(balance > 1){
+                if(height(current->left) >= height(current->right)){
+                    return rightRotation(current);
+                }else{
+                    current->left = leftRotation(current->left);
+                    return rightRotation(current);
+                }
+            }else if(balance < -1){
+                if(height(current->right) >= height(current->left)){
+                    return leftRotation(current);
+                }else{
+                    current->right = rightRotation(current->right);
+                    return leftRotation(current);
+                }
             }
+
+            return current;
         }
 
-        return current;
-    }
-
-    int search(Node* current, int value, int& iterations){
-        if(current == NULL){
-            return -1;
+        int search(Node* current, int value, int& iterations){
+            if(current == NULL){
+                return -1;
+            }
+            iterations++;
+            if(current->data == value) {
+                return iterations;
+            }
+            if(value < current->data) {
+                return search(current->left, value, iterations);
+            }
+            else{
+                return search(current->right, value, iterations);  
+            } 
         }
-        iterations++;
-        if(current->data == value) {
-            return iterations;
-        }
-        if(value < current->data) {
-            return search(current->left, value, iterations);
-        }
-        else{
-            return search(current->right, value, iterations);  
-        } 
-    }
 
-    int size() const override{
-        return size_;
-    }
+        int size() const override{
+            return size_;
+        }
 
-    std::string algorithmName() const override {
-        return "TREE AVL";
-    }
+        std::string algorithmName() const override {
+            return "TREE AVL";
+        }
 
 };
