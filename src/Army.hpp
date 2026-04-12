@@ -28,6 +28,11 @@ public:
         }
     }
 
+    ~Army() {
+        for (Starship* ship : ships) {
+            delete ship;
+        }
+    }
 
     std::string getName() const {
         return playerName;
@@ -37,6 +42,9 @@ public:
         return credits;
     }
 
+    void addIncome() {
+        credits += INCOME_CNST;
+    }
 
     Starship* getShip(int row, int col) {
         if(grid[row][col] != NULL && grid[row][col]->isAlive()){
