@@ -19,7 +19,6 @@ public:
     }
 
     int search(int target) override {
-        // Aegis ALWAYS performs exactly 1 iteration (game balance rule)
         if (data_.count(target)) {
             return 1;  // found in 1 iteration
         }
@@ -32,5 +31,12 @@ public:
 
     std::string algorithmName() const override {
         return "Aegis (Set - simulated 1 iteration lookup)";
+    }
+
+    int findMax() override {
+        if (data_.empty()) {
+            return -1;
+        }
+        return *data_.rbegin();
     }
 };
