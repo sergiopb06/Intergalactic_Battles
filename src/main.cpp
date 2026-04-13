@@ -7,14 +7,13 @@ enum class GameState{
 };
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Intergalactic Battles");
-    window.setFramerateLimit(60);
+    sf::RenderWindow window(sf::VideoMode({800, 600}), "Intergalactic Battles");    window.setFramerateLimit(60);
 
     GameState state = GameState::MENU;
 
     //Load Font 
     sf::Font font;  
-    if(!font.loadFromFile("Orbitron-VariableFont_wght.ttf")){
+    if (!font.openFromFile("Orbitron-VariableFont_wght.ttf")) {
         return -1;
     }
 
@@ -26,32 +25,25 @@ int main() {
     sf::Sprite background(backgroundTexture);
 
     //Scale Image to fit window 
-    background.setScale( 800.f / backgroundTexture.getSize().x , 600.f / backgroundTexture.getSize().y );
+    background.setScale(sf::Vector2f(800.f / backgroundTexture.getSize().x,600.f / backgroundTexture.getSize().y));
 
     // ***********************
     //     MENU SCREEN
     // ***********************
 
     //Main Title
-    sf::Text title;
-    title.setFont(font);
-    title.setString("Intergalactic Battles");
-    title.setCharacterSize(48);
+    sf::Text title(font, "Intergalactic Battles", 48);
     title.setFillColor(sf::Color::White);
     title.setOutlineColor(sf::Color::Black);
     title.setOutlineThickness(3.f);
-    title.setPosition((800 - title.getLocalBounds().width) / 2, 150);
-
+    title.setPosition(sf::Vector2f((800 - title.getLocalBounds().size.x) / 2, 150));
 
     //SubText 
-    sf::Text subText;
-    subText.setFont(font);
-    subText.setString("Click \"GO\" to play");
-    subText.setCharacterSize(24);
+    sf::Text subText(font, "Click \"GO\" to play", 24);
     subText.setFillColor(sf::Color::White);
     subText.setOutlineColor(sf::Color::Black);
     subText.setOutlineThickness(3.f);
-    subText.setPosition((800 - subText.getLocalBounds().width) / 2, 280);
+     subText.setPosition(sf::Vector2f((800 - subText.getLocalBounds().size.x) / 2, 280));
 
 
     // GO button 
@@ -59,23 +51,20 @@ int main() {
     button.setFillColor(sf::Color(30,100,200));
     button.setOutlineColor(sf::Color::White);
     button.setOutlineThickness(2.f);
-    button.setPosition((800 - 160) / 2, 380);
+    button.setPosition(sf::Vector2f((800 - 160) / 2, 380));
 
 
     // Button text
-    sf::Text buttonText;
-    buttonText.setFont(font);
-    buttonText.setString("GO");
-    buttonText.setCharacterSize(30);
+    sf::Text buttonText(font, "GO", 30);
     buttonText.setFillColor(sf::Color::White);
     buttonText.setOutlineColor(sf::Color::Black);
     buttonText.setOutlineThickness(2.f);
 
     //Center text
-    buttonText.setPosition(
-        button.getPosition().x + (160 - buttonText.getLocalBounds().width) / 2,
-        button.getPosition().y + (50 - buttonText.getLocalBounds().height) / 2
-    );
+    buttonText.setPosition(sf::Vector2f(
+        button.getPosition().x + (160 - buttonText.getLocalBounds().size.x) / 2,
+        button.getPosition().y + (50  - buttonText.getLocalBounds().size.y) / 2
+    ));
 
     sf::Color normalColor(30,100,200);
     sf::Color hoverColor(60,140,255);
@@ -85,54 +74,49 @@ int main() {
     //     GAME SCREEN
     // ***********************
 
-    sf::Text gameText;
-    gameText.setFont(font);
-    gameText.setString("Coming Soon!");
-    gameText.setCharacterSize(48);
+    sf::Text gameText(font, "Coming Soon!", 48);
     gameText.setFillColor(sf::Color::White);
     gameText.setOutlineColor(sf::Color::Black);
     gameText.setOutlineThickness(2.f);
-    gameText.setPosition((800 - title.getLocalBounds().width) / 2, 150);
+     gameText.setPosition(sf::Vector2f((800 - gameText.getLocalBounds().size.x) / 2, 150));
 
-    sf::Text backText;
-    backText.setFont(font);
-    backText.setString("Press ESC to go back");
-    backText.setCharacterSize(20);
+     sf::Text backText(font, "Press ESC to go back", 20);
     backText.setFillColor(sf::Color(150, 200, 255));
     backText.setOutlineColor(sf::Color::Black);
     backText.setOutlineThickness(2.f);
-    backText.setPosition((800 - backText.getLocalBounds().width) / 2,320);
-
+    backText.setPosition(sf::Vector2f((800 - backText.getLocalBounds().size.x) / 2, 320));
 
     // ***********************
     //     GAME LOOP
     // ***********************
 
 while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
+        while (const std::optional<sf::Event> event = window.pollEvent()) {
+
 
             // Closed
-            if (event.type == sf::Event::Closed) {
+             if (event->is<sf::Event::Closed>()) {
                 window.close();
             }
 
             // Menu events
             if (state == GameState::MENU) {
-                if (event.type == sf::Event::MouseButtonPressed &&
-                    event.mouseButton.button == sf::Mouse::Left) {
-                    sf::Vector2f mousePos(event.mouseButton.x, event.mouseButton.y);
-                    if (button.getGlobalBounds().contains(mousePos)) {
-                        state = GameState::PLAYING;
+                if (const auto* mousePressed = event->getIf<sf::Event::MouseButtonPressed>()) {
+                    if (mousePressed->button == sf::Mouse::Button::Left) {
+                        sf::Vector2f mousePos(mousePressed->position);
+                        if (button.getGlobalBounds().contains(mousePos)) {
+                            state = GameState::PLAYING;
+                        }
                     }
                 }
             }
 
             // Game events
             if (state == GameState::PLAYING) {
-                if (event.type == sf::Event::KeyPressed &&
-                    event.key.code == sf::Keyboard::Escape) {
-                    state = GameState::MENU;
+                if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+                    if (keyPressed->code == sf::Keyboard::Key::Escape) {
+                        state = GameState::MENU;
+                    }
                 }
             }
         }
