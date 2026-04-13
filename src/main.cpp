@@ -219,6 +219,7 @@ while (window.isOpen()) {
             }
         }
 
+
         // Hover effect (menu)
         if (state == GameState::MENU) {
             sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
@@ -228,6 +229,13 @@ while (window.isOpen()) {
                 button.setFillColor(normalColor);
         }
 
+        if (state == GameState::NAMES) {
+            sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
+            if (startButton.getGlobalBounds().contains(mousePos))
+                startButton.setFillColor(hoverColor);
+            else
+                startButton.setFillColor(normalColor);
+        }
     // ***********************
     //     DRAW
     // ***********************
