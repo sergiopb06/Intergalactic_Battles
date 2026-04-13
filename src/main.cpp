@@ -3,7 +3,8 @@
 // Game screens
 enum class GameState{
     MENU,
-    PLAYING
+    NAMES,
+    // PLAYING
 };
 
 int main() {
@@ -23,7 +24,6 @@ int main() {
         return -1;
     }
     sf::Sprite background(backgroundTexture);
-
     //Scale Image to fit window 
     background.setScale(sf::Vector2f(800.f / backgroundTexture.getSize().x,600.f / backgroundTexture.getSize().y));
 
@@ -71,20 +71,77 @@ int main() {
 
     
     // ***********************
-    //     GAME SCREEN
+    //     NAME SCREEN
     // ***********************
 
-    sf::Text gameText(font, "Coming Soon!", 48);
-    gameText.setFillColor(sf::Color::White);
-    gameText.setOutlineColor(sf::Color::Black);
-    gameText.setOutlineThickness(2.f);
-     gameText.setPosition(sf::Vector2f((800 - gameText.getLocalBounds().size.x) / 2, 150));
+    std::string player1Name = "";
+    std::string player2Name = "";
+    int activePlayer = 1;
 
-     sf::Text backText(font, "Press ESC to go back", 20);
-    backText.setFillColor(sf::Color(150, 200, 255));
-    backText.setOutlineColor(sf::Color::Black);
-    backText.setOutlineThickness(2.f);
-    backText.setPosition(sf::Vector2f((800 - backText.getLocalBounds().size.x) / 2, 320));
+    sf::Text setupTitle(font, "Enter player name", 36);
+    setupTitle.setFillColor(sf::Color::White);
+    setupTitle.setOutlineColor(sf::Color::Black);
+    setupTitle.setOutlineThickness(2.f);
+    setupTitle.setPosition(sf::Vector2f ( (800 - setupTitle.getLocalBounds().size.x) / 2, 80));
+
+
+    //Player 1 -------------------------
+    sf::Text p1Label(font, "Player 1: ", 22);
+    p1Label.setFillColor(sf::Color(150,200,255));
+    p1Label.setOutlineColor(sf::Color::Black);
+    p1Label.setOutlineThickness(2.f);
+    p1Label.setPosition(sf::Vector2f(200,200));
+
+    sf::RectangleShape p1Box(sf::Vector2f(340, 50));
+    p1Box.setFillColor(sf::Color(20,20,60));
+    p1Box.setOutlineColor(sf::Color::Yellow);
+    p1Box.setOutlineThickness(2.f);
+    p1Box.setPosition(sf::Vector2f(200,235));
+
+    sf::Text p1Text(font, "", 22);
+    p1Text.setFillColor(sf::Color::White);
+    p1Text.setPosition(sf::Vector2f(212,248));
+
+    //Player 2 ---------------------
+    sf::Text p2Label(font, "Player 2:", 22);
+    p2Label.setFillColor(sf::Color(150, 200, 255));
+    p2Label.setOutlineColor(sf::Color::Black);
+    p2Label.setOutlineThickness(2.f);
+    p2Label.setPosition(sf::Vector2f(200, 330));
+
+    sf::RectangleShape p2Box(sf::Vector2f(340, 50));
+    p2Box.setFillColor(sf::Color(20, 20, 60));
+    p2Box.setOutlineColor(sf::Color::Yellow);
+    p2Box.setOutlineThickness(2.f);
+    p2Box.setPosition(sf::Vector2f(200, 365));
+
+    sf::Text p2Text(font, "", 22);
+    p2Text.setFillColor(sf::Color::White);
+    p2Text.setPosition(sf::Vector2f(212, 378));
+
+    sf::Text hintText(font, "Click a box to select it, then type", 16);
+    hintText.setFillColor(sf::Color(180,180,180));
+    hintText.setPosition(sf::Vector2f((800 - hintText.getLocalBounds().size.x) /2 ,440));
+
+    // START 
+
+    sf::RectangleShape startButton(sf::Vector2f(200,55));
+    startButton.setFillColor(sf::Color(30,100,200));
+    startButton.setOutlineColor(sf::Color::White);
+    startButton.setOutlineThickness(2.f);
+    startButton.setPosition(sf::Vector2f((800-200)/2, 490));
+
+    sf::Text startText(font, "START", 26);
+    startText.setFillColor(sf::Color::White);
+    startText.setOutlineColor(sf::Color::Black);
+    startText.setOutlineThickness(2.f);
+    startText.setPosition(sf::Vector2f(startButton.getPosition().x + (200 - startText.getLocalBounds().size.x) / 2,
+        startButton.getPosition().y + (55 - startText.getLocalBounds().size.y) / 2));
+
+    sf::Color statNormal(30,100,200);
+    sf::Color startHover(60,140,255);
+
+
 
     // ***********************
     //     GAME LOOP
@@ -99,25 +156,66 @@ while (window.isOpen()) {
                 window.close();
             }
 
-            // Menu events
+            // Menu 
             if (state == GameState::MENU) {
                 if (const auto* mousePressed = event->getIf<sf::Event::MouseButtonPressed>()) {
                     if (mousePressed->button == sf::Mouse::Button::Left) {
                         sf::Vector2f mousePos(mousePressed->position);
                         if (button.getGlobalBounds().contains(mousePos)) {
-                            state = GameState::PLAYING;
+                            state = GameState::NAMES;
                         }
                     }
                 }
             }
 
-            // Game events
-            if (state == GameState::PLAYING) {
-                if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
-                    if (keyPressed->code == sf::Keyboard::Key::Escape) {
+            // Names
+            if (state == GameState::NAMES) {
+                
+                if(const auto* mousePress = event->getIf<sf::Event::MouseButtonPressed>()){
+                    if(mousePress->button == sf::Mouse::Button::Left){
+                        sf::Vector2f mousePos(mousePress->position.x, mousePress->position.y);
+                        if(p1Box.getGlobalBounds(). contains(mousePos)){
+                            activePlayer = 1;
+                        }else if(p2Box.getGlobalBounds(). contains(mousePos)){
+                            activePlayer = 2;
+                        }
+
+                        if(startButton.getGlobalBounds().contains(mousePos)){
+                            if(!player1Name.empty() && !player2Name.empty()){
+
+                            }
+                        }
+                    }
+                }
+
+                if(const auto* textEntered = event->getIf<sf::Event::TextEntered>()){
+                    uint32_t ch = textEntered->unicode;
+
+                    if (ch == 8) {
+                        if (activePlayer == 1 && !player1Name.empty())
+                            player1Name.pop_back();
+                        else if (activePlayer == 2 && !player2Name.empty())
+                            player2Name.pop_back();
+                    } else if (ch == 9) {
+                        activePlayer = (activePlayer == 1) ? 2 : 1;
+                    } else if (ch >= 32 && ch < 128) {
+                        if (activePlayer == 1 && player1Name.size() < 15)
+                            player1Name += static_cast<char>(ch);
+                        else if (activePlayer == 2 && player2Name.size() < 15)
+                            player2Name += static_cast<char>(ch);
+                    }
+
+                    p1Text.setString(player1Name);
+                    p2Text.setString(player2Name);
+                }
+
+                if(const auto* keyPress = event->getIf<sf::Event::KeyPressed>()){
+                    if(keyPress->code == sf::Keyboard::Key::Escape){
                         state = GameState::MENU;
                     }
                 }
+
+
             }
         }
 
@@ -144,9 +242,17 @@ while (window.isOpen()) {
             window.draw(buttonText);
         }
 
-        if (state == GameState::PLAYING) {
-            window.draw(gameText);
-            window.draw(backText);
+        if (state == GameState::NAMES) {
+            window.draw(setupTitle);
+            window.draw(p1Label);
+            window.draw(p1Box);
+            window.draw(p1Text);
+            window.draw(p2Label);
+            window.draw(p2Box);
+            window.draw(p2Text);
+            window.draw(hintText);
+            window.draw(startButton);
+            window.draw(startText);
         }
 
         window.display();
