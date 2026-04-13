@@ -9,7 +9,7 @@
                 "-g",
                 "src/main.cpp",
                 "-o",
-                "WarshipGame",
+                "IntergalacticBattles",
                 "-lsfml-graphics",
                 "-lsfml-window",
                 "-lsfml-system"
