@@ -1,5 +1,8 @@
 #pragma once 
 #include <cstdlib>
+#include <ctime>
+#include <vector>
+
 #include "IStarShipCore.hpp"
 #include "Constants.hpp"
 #include "Nova.hpp"
@@ -16,6 +19,11 @@ private:
     int row;
     int col;
     int price;
+
+    int totalSearches = 0;
+    int totalIterations =0;
+    double cpuTime = 0;
+    std::vector<int> upgrdLog;
 
 public:
     Starship(IStarShipCore* core, int row, int col, int price){
@@ -52,11 +60,22 @@ public:
     void upgrade() {
         int max = core->findMax();
         core->remove(max);
+        upgrdLog.push_back(core->findMax());
     }
 
     int atk() {
         int target = rand() % core->findMax();
+
+        clock_t start = clock();
         int iterations = core->search(target);
+        clock_t end = clock();
+
+        totalSearches++;
+        if(iterations != -1){
+            totalIterations += iterations;
+            cpuTime += (double)(end - start) / CLOCKS_PER_SEC;
+        }
+
         int dmg = 0;
         if(iterations != -1){
             dmg = DAMAGE_CNST / iterations;
@@ -99,6 +118,26 @@ public:
 
     void setCol(int col) {
         this->col = col;
+    }
+
+    int getTotalSearches() const {
+        return totalSearches;
+    }
+
+    int getTotalIterations() const {
+        return totalIterations;
+    }
+
+    double getCPUTime() const {
+        return cpuTime;
+    }
+
+    std::string getAlgorithm() const {
+        return core->algorithmName();
+    }
+
+    const std::vector<int>& getUprdLog() const {
+        return upgrdLog;
     }
 
 };

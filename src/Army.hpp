@@ -53,6 +53,10 @@ public:
         return NULL;
     }
 
+    const std::vector<Starship*>& getAllShips() const {
+        return ships;
+    }
+
     bool lostCheck() {
         for(Starship* ship : ships) {
             if(ship->isAlive()){
