@@ -5,6 +5,8 @@ enum class GameState{
     MENU,
     NAMES,
     PLAYING,
+    WAITING,
+    GAMEOVER
 };
 
 int main() {
@@ -319,20 +321,28 @@ while (window.isOpen()) {
 
 
         // Hover effect (menu)
+        sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
+
         if (state == GameState::MENU) {
-            sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
-            if (button.getGlobalBounds().contains(mousePos))
-                button.setFillColor(hoverColor);
-            else
-                button.setFillColor(normalColor);
+            button.setFillColor(button.getGlobalBounds().contains(mousePos) ? hoverColor : normalColor);
         }
 
         if (state == GameState::NAMES) {
-            sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
-            if (startButton.getGlobalBounds().contains(mousePos))
-                startButton.setFillColor(hoverColor);
-            else
-                startButton.setFillColor(normalColor);
+            p1Box.setOutlineColor(activePlayer == 1 ? sf::Color::Yellow : sf::Color::White);
+            p2Box.setOutlineColor(activePlayer == 2 ? sf::Color::Yellow : sf::Color::White);
+            startButton.setFillColor(startButton.getGlobalBounds().contains(mousePos) ? startHover : statNormal);
+        }
+
+        if (state == GameState::PLAYING) {
+            sf::Color buyNormal(30, 100, 200);
+            sf::Color buyHover(60, 140, 255);
+            sf::Color attackNormal(180, 30, 30);
+            sf::Color attackHover(220, 60, 60);
+
+            buyBotton.setFillColor(buyBotton.getGlobalBounds().contains(mousePos) ? buyHover : buyNormal);
+            moveBotton.setFillColor(moveBotton.getGlobalBounds().contains(mousePos) ? buyHover : buyNormal);
+            upgradeBotton.setFillColor(upgradeBotton.getGlobalBounds().contains(mousePos) ? buyHover : buyNormal);
+            attackBotton.setFillColor(attackBotton.getGlobalBounds().contains(mousePos) ? attackHover : attackNormal);
         }
     // ***********************
     //     DRAW

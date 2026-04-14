@@ -2,13 +2,48 @@
 #include "Army.hpp"
 #include <iostream>
 
+enum class ActionMode{
+    NONE,
+    DEPLOY,
+    MOVE_FROM,
+    MOVE_TO,
+    ATTACK_FROM,
+    ATTACK_TO
+};
+
+
 class Game {
 private:
     Army player1;
     Army player2;
+    int currentTurn;
+    int ap;
+    ActionMode mode;
+    int selectedShipType;
+    int fromRow, fromCol;
 
 public:
-    Game(std::string p1, std::string p2) : player1(p1) ,player2(p2) {}
+    Game(std::string p1, std::string p2) : player1(p1), player2(p2), currentTurn(1), 
+        ap(AP_PER_TURN), mode(ActionMode::NONE), selectedShipType(0), fromRow(-1), fromCol(-1){}
+
+
+    // -------Getters---------
+
+    Army& getCurrentArmy(){
+        if(currentTurn == 1){
+            return player1;
+        }else{
+            return player2;
+        }
+    }
+
+    Army& getEnemyArmy(){
+        if(currentTurn == 1){
+            return player2;
+        }else{
+            return player1;
+        }
+    }
 
     void start() {
         bool finishGame = false;
