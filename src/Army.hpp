@@ -15,7 +15,7 @@ private:
         return grid[row][col] != NULL;
     }
 
-
+ 
 public:
     Army(std::string name){
         this->playerName = name;
