@@ -224,7 +224,7 @@ int main() {
     apBox.setOutlineThickness(2.f);
     apBox.setPosition(sf::Vector2f(bottonX, 390.f));
 
-    sf::Text apText(font, "AP: 3", 22);
+    sf::Text apText(font, "AP: ", 22);
     apText.setFillColor(sf::Color::Yellow);
     apText.setPosition(sf::Vector2f(bottonX + (bottonY - apText.getLocalBounds().size.x) / 2,
         apBox.getPosition().y + (bottonH - apText.getLocalBounds().size.y) / 2));
@@ -235,7 +235,7 @@ int main() {
     moneyBox.setOutlineThickness(2.f);
     moneyBox.setPosition(sf::Vector2f(bottonX, 465.f));
 
-    sf::Text moneyText(font, "$: 1500", 22);
+    sf::Text moneyText(font, "$: ", 22);
     moneyText.setFillColor(sf::Color(100, 255, 100));
     moneyText.setPosition(sf::Vector2f(bottonX + (bottonY - moneyText.getLocalBounds().size.x) / 2,
         moneyBox.getPosition().y + (bottonH - moneyText.getLocalBounds().size.y) / 2));
