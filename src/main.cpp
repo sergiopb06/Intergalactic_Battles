@@ -4,11 +4,11 @@
 enum class GameState{
     MENU,
     NAMES,
-    // PLAYING
+    PLAYING,
 };
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "Intergalactic Battles");    window.setFramerateLimit(60);
+    sf::RenderWindow window(sf::VideoMode({1200, 800}), "Intergalactic Battles");    window.setFramerateLimit(60);
 
     GameState state = GameState::MENU;
 
@@ -25,7 +25,7 @@ int main() {
     }
     sf::Sprite background(backgroundTexture);
     //Scale Image to fit window 
-    background.setScale(sf::Vector2f(800.f / backgroundTexture.getSize().x,600.f / backgroundTexture.getSize().y));
+    background.setScale(sf::Vector2f(1200.f / backgroundTexture.getSize().x,800.f / backgroundTexture.getSize().y));
 
     // ***********************
     //     MENU SCREEN
@@ -36,14 +36,14 @@ int main() {
     title.setFillColor(sf::Color::White);
     title.setOutlineColor(sf::Color::Black);
     title.setOutlineThickness(3.f);
-    title.setPosition(sf::Vector2f((800 - title.getLocalBounds().size.x) / 2, 150));
+    title.setPosition(sf::Vector2f((1200 - title.getLocalBounds().size.x) / 2, 150));
 
     //SubText 
     sf::Text subText(font, "Click \"GO\" to play", 24);
     subText.setFillColor(sf::Color::White);
     subText.setOutlineColor(sf::Color::Black);
     subText.setOutlineThickness(3.f);
-     subText.setPosition(sf::Vector2f((800 - subText.getLocalBounds().size.x) / 2, 280));
+     subText.setPosition(sf::Vector2f((1200 - subText.getLocalBounds().size.x) / 2, 280));
 
 
     // GO button 
@@ -51,7 +51,7 @@ int main() {
     button.setFillColor(sf::Color(30,100,200));
     button.setOutlineColor(sf::Color::White);
     button.setOutlineThickness(2.f);
-    button.setPosition(sf::Vector2f((800 - 160) / 2, 380));
+    button.setPosition(sf::Vector2f((1200 - 160) / 2, 380));
 
 
     // Button text
@@ -82,7 +82,7 @@ int main() {
     setupTitle.setFillColor(sf::Color::White);
     setupTitle.setOutlineColor(sf::Color::Black);
     setupTitle.setOutlineThickness(2.f);
-    setupTitle.setPosition(sf::Vector2f ( (800 - setupTitle.getLocalBounds().size.x) / 2, 80));
+    setupTitle.setPosition(sf::Vector2f((1200 - setupTitle.getLocalBounds().size.x) / 2, 80));
 
 
     //Player 1 -------------------------
@@ -90,38 +90,38 @@ int main() {
     p1Label.setFillColor(sf::Color(150,200,255));
     p1Label.setOutlineColor(sf::Color::Black);
     p1Label.setOutlineThickness(2.f);
-    p1Label.setPosition(sf::Vector2f(200,200));
+    p1Label.setPosition(sf::Vector2f(430,200));
 
     sf::RectangleShape p1Box(sf::Vector2f(340, 50));
     p1Box.setFillColor(sf::Color(20,20,60));
     p1Box.setOutlineColor(sf::Color::Yellow);
     p1Box.setOutlineThickness(2.f);
-    p1Box.setPosition(sf::Vector2f(200,235));
+    p1Box.setPosition(sf::Vector2f(430,235));
 
     sf::Text p1Text(font, "", 22);
     p1Text.setFillColor(sf::Color::White);
-    p1Text.setPosition(sf::Vector2f(212,248));
+    p1Text.setPosition(sf::Vector2f(442,248));
 
     //Player 2 ---------------------
     sf::Text p2Label(font, "Player 2:", 22);
     p2Label.setFillColor(sf::Color(150, 200, 255));
     p2Label.setOutlineColor(sf::Color::Black);
     p2Label.setOutlineThickness(2.f);
-    p2Label.setPosition(sf::Vector2f(200, 330));
+    p2Label.setPosition(sf::Vector2f(430, 330));
 
     sf::RectangleShape p2Box(sf::Vector2f(340, 50));
     p2Box.setFillColor(sf::Color(20, 20, 60));
     p2Box.setOutlineColor(sf::Color::Yellow);
     p2Box.setOutlineThickness(2.f);
-    p2Box.setPosition(sf::Vector2f(200, 365));
+    p2Box.setPosition(sf::Vector2f(430, 365));
 
     sf::Text p2Text(font, "", 22);
     p2Text.setFillColor(sf::Color::White);
-    p2Text.setPosition(sf::Vector2f(212, 378));
+    p2Text.setPosition(sf::Vector2f(442, 378));
 
     sf::Text hintText(font, "Click a box to select it, then type", 16);
     hintText.setFillColor(sf::Color(180,180,180));
-    hintText.setPosition(sf::Vector2f((800 - hintText.getLocalBounds().size.x) /2 ,440));
+    hintText.setPosition(sf::Vector2f((1200 - hintText.getLocalBounds().size.x) /2 ,440));
 
     // START 
 
@@ -129,7 +129,7 @@ int main() {
     startButton.setFillColor(sf::Color(30,100,200));
     startButton.setOutlineColor(sf::Color::White);
     startButton.setOutlineThickness(2.f);
-    startButton.setPosition(sf::Vector2f((800-200)/2, 490));
+    startButton.setPosition(sf::Vector2f((1200-200)/2, 490));
 
     sf::Text startText(font, "START", 26);
     startText.setFillColor(sf::Color::White);
@@ -141,7 +141,105 @@ int main() {
     sf::Color statNormal(30,100,200);
     sf::Color startHover(60,140,255);
 
+    // ***********************
+    //     PLAYING SCREEN
+    // ***********************
 
+    //Dimensions
+    const int cols = 10;
+    const int rows = 10;
+    const float cellSize = 50.f;
+    const float gridX = 350.f + (850.f - cols * cellSize) / 2;
+    const float gridY = (800.f - rows * cellSize) / 2;
+
+    sf::Texture manzana;
+    if (!manzana.loadFromFile("manzana.jpg")) {
+        return -1;
+    }
+
+    //Radar Interference (Black Screen)
+    sf::RectangleShape blackScreen(sf::Vector2f(cols * cellSize, 5 * cellSize));
+    blackScreen.setPosition(sf::Vector2f(gridX - 1, gridY - 1));
+    blackScreen.setTexture(&manzana);
+
+    sf::RectangleShape cell(sf::Vector2f(cellSize - 2, cellSize - 2));
+    cell.setOutlineColor(sf::Color::White);
+    cell.setOutlineThickness(1.f);
+
+    sf::RectangleShape hudDivision(sf::Vector2f(2.f, 800.f));
+    hudDivision.setFillColor(sf::Color(80, 80, 80));
+    hudDivision.setPosition(sf::Vector2f(350.f, 0.f));
+
+    const float bottonX = 50.f;
+    const float bottonY = 240.f;
+    const float bottonH = 55.f;
+
+    sf::RectangleShape buyBotton(sf::Vector2f(bottonY, bottonH));
+    buyBotton.setFillColor(sf::Color(30, 100, 200));
+    buyBotton.setOutlineColor(sf::Color::White);
+    buyBotton.setOutlineThickness(2.f);
+    buyBotton.setPosition(sf::Vector2f(bottonX, 60.f));
+
+    sf::RectangleShape upgradeBotton(sf::Vector2f(bottonY, bottonH));
+    upgradeBotton.setFillColor(sf::Color(30, 100, 200));
+    upgradeBotton.setOutlineColor(sf::Color::White);
+    upgradeBotton.setOutlineThickness(2.f);
+    upgradeBotton.setPosition(sf::Vector2f(bottonX, 210.f));
+
+    sf::RectangleShape moveBotton(sf::Vector2f(bottonY, bottonH));
+    moveBotton.setFillColor(sf::Color(30, 100, 200));
+    moveBotton.setOutlineColor(sf::Color::White);
+    moveBotton.setOutlineThickness(2.f);
+    moveBotton.setPosition(sf::Vector2f(bottonX, 135.f));
+
+    sf::RectangleShape attackBotton(sf::Vector2f(bottonY, bottonH));
+    attackBotton.setFillColor(sf::Color(180, 30, 30));
+    attackBotton.setOutlineColor(sf::Color::White);
+    attackBotton.setOutlineThickness(2.f);
+    attackBotton.setPosition(sf::Vector2f(bottonX, 285.f));
+
+    sf::Text buyText(font, "BUY", 22);
+    buyText.setFillColor(sf::Color::White);
+    buyText.setPosition(sf::Vector2f(bottonX + (bottonY - buyText.getLocalBounds().size.x) / 2,
+        buyBotton.getPosition().y + (bottonH - buyText.getLocalBounds().size.y) / 2));
+
+    sf::Text upgradeText(font, "UPGRADE", 22);
+    upgradeText.setFillColor(sf::Color::White);
+    upgradeText.setPosition(sf::Vector2f(bottonX + (bottonY - upgradeText.getLocalBounds().size.x) / 2,
+        upgradeBotton.getPosition().y + (bottonH - upgradeText.getLocalBounds().size.y) / 2));
+
+    sf::Text moveText(font, "MOVE", 22);
+    moveText.setFillColor(sf::Color::White);
+    moveText.setPosition(sf::Vector2f(bottonX + (bottonY - moveText.getLocalBounds().size.x) / 2,
+        moveBotton.getPosition().y + (bottonH - moveText.getLocalBounds().size.y) / 2));
+
+    sf::Text attackText(font, "ATTACK", 22);
+    attackText.setFillColor(sf::Color::White);
+    attackText.setPosition(sf::Vector2f(bottonX + (bottonY - attackText.getLocalBounds().size.x) / 2,
+        attackBotton.getPosition().y + (bottonH - attackText.getLocalBounds().size.y) / 2));
+    
+    sf::RectangleShape apBox(sf::Vector2f(bottonY, bottonH));
+    apBox.setFillColor(sf::Color(20, 20, 60));
+    apBox.setOutlineColor(sf::Color::Yellow);
+    apBox.setOutlineThickness(2.f);
+    apBox.setPosition(sf::Vector2f(bottonX, 390.f));
+
+    sf::Text apText(font, "AP: 3", 22);
+    apText.setFillColor(sf::Color::Yellow);
+    apText.setPosition(sf::Vector2f(bottonX + (bottonY - apText.getLocalBounds().size.x) / 2,
+        apBox.getPosition().y + (bottonH - apText.getLocalBounds().size.y) / 2));
+
+    sf::RectangleShape moneyBox(sf::Vector2f(bottonY, bottonH));
+    moneyBox.setFillColor(sf::Color(20, 20, 60));
+    moneyBox.setOutlineColor(sf::Color::Yellow);
+    moneyBox.setOutlineThickness(2.f);
+    moneyBox.setPosition(sf::Vector2f(bottonX, 465.f));
+
+    sf::Text moneyText(font, "$: 1500", 22);
+    moneyText.setFillColor(sf::Color(100, 255, 100));
+    moneyText.setPosition(sf::Vector2f(bottonX + (bottonY - moneyText.getLocalBounds().size.x) / 2,
+        moneyBox.getPosition().y + (bottonH - moneyText.getLocalBounds().size.y) / 2));
+    
 
     // ***********************
     //     GAME LOOP
@@ -182,7 +280,7 @@ while (window.isOpen()) {
 
                         if(startButton.getGlobalBounds().contains(mousePos)){
                             if(!player1Name.empty() && !player2Name.empty()){
-
+                                state = GameState::PLAYING;
                             }
                         }
                     }
@@ -263,6 +361,30 @@ while (window.isOpen()) {
             window.draw(startText);
         }
 
+        if (state == GameState::PLAYING) {
+            for (int row = 0; row < rows; row++) {
+                for (int col = 0; col < cols; col++) {
+                    float x = gridX + col * cellSize;
+                    float y = gridY + row * cellSize;
+                    cell.setPosition(sf::Vector2f(x, y));
+                    if (row < 5)
+                        cell.setFillColor(sf::Color(15, 15, 40));
+                    else
+                        cell.setFillColor(sf::Color(30, 100, 200));
+                    window.draw(cell);
+                }
+            }
+            window.draw(blackScreen);
+            window.draw(hudDivision);
+
+            window.draw(buyBotton);    window.draw(buyText);
+            window.draw(moveBotton);   window.draw(moveText);
+            window.draw(upgradeBotton);window.draw(upgradeText);
+            window.draw(attackBotton); window.draw(attackText);
+
+            window.draw(apBox);     window.draw(apText);
+            window.draw(moneyBox);  window.draw(moneyText);
+        }
         window.display();
     }
     return 0;
