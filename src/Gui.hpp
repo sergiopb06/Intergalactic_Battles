@@ -15,6 +15,27 @@ enum class GameState {
 class GUI {
 private:
 
+    std::string logMessage;
+    sf::Text* logText;
+    sf::Clock waitingClock; 
+    bool waitingStarted;
+
+    // Ship selector 
+    bool showShipMenu;
+    sf::RectangleShape shipMenuBox;
+    sf::Text* shipOptions[6];
+
+    sf::Text* turnText;
+    sf::RectangleShape endTurnButton;
+    sf::Text* endTurnText;
+
+    sf::Text* waitingText;
+
+    sf::Text* gameOverText;
+    sf::Text* winnerText;
+    sf::RectangleShape restartButton;
+    sf::Text* restartText;
+
 
     sf::RenderWindow window;
     GameState state;
@@ -81,15 +102,12 @@ private:
     sf::Text moveText;
     sf::Text attackText;
 
-    sf::RectangleShape actionPointsBox;
-    sf::Text actionPointsText;
+    sf::RectangleShape apBox;
+    sf::Text apText;
     sf::RectangleShape moneyBox;
     sf::Text moneyText;
 
-    bool deployMenuOpen = false;
 
-    sf::RectangleShape novaBotton, pulsarBotton, aegisBotton, quasarBotton, nebulaBotton, vortixBotton, exitBotton;
-    sf::Text novaText, pulsarText, aegisText, quasarText, nebulaText, votixText, exitText;
 
 
     void initMenu() {
@@ -248,15 +266,15 @@ private:
         attackText.setFillColor(sf::Color::White);
         attackText.setPosition(sf::Vector2f(bottonX + (bottonY - attackText.getLocalBounds().size.x) / 2, attackBotton.getPosition().y + (bottonH - attackText.getLocalBounds().size.y) / 2));
 
-        actionPointsBox = sf::RectangleShape(sf::Vector2f(bottonY, bottonH));
-        actionPointsBox.setFillColor(sf::Color(20, 20, 60));
-        actionPointsBox.setOutlineColor(sf::Color::Yellow);
-        actionPointsBox.setOutlineThickness(2.f);
-        actionPointsBox.setPosition(sf::Vector2f(bottonX, 390.f));
+        apBox = sf::RectangleShape(sf::Vector2f(bottonY, bottonH));
+        apBox.setFillColor(sf::Color(20, 20, 60));
+        apBox.setOutlineColor(sf::Color::Yellow);
+        apBox.setOutlineThickness(2.f);
+        apBox.setPosition(sf::Vector2f(bottonX, 390.f));
 
-        actionPointsText = sf::Text(font, "AP: ", 22);
-        actionPointsText.setFillColor(sf::Color::Yellow);
-        actionPointsText.setPosition(sf::Vector2f(bottonX + (bottonY - actionPointsText.getLocalBounds().size.x) / 2, actionPointsBox.getPosition().y + (bottonH - actionPointsText.getLocalBounds().size.y) / 2));
+        apText = sf::Text(font, "AP: ", 22);
+        apText.setFillColor(sf::Color::Yellow);
+        apText.setPosition(sf::Vector2f(bottonX + (bottonY - apText.getLocalBounds().size.x) / 2, apBox.getPosition().y + (bottonH - apText.getLocalBounds().size.y) / 2));
 
         moneyBox = sf::RectangleShape(sf::Vector2f(bottonY, bottonH));
         moneyBox.setFillColor(sf::Color(20, 20, 60));
@@ -268,37 +286,80 @@ private:
         moneyText.setFillColor(sf::Color(100, 255, 100));
         moneyText.setPosition(sf::Vector2f(bottonX + (bottonY - moneyText.getLocalBounds().size.x) / 2, moneyBox.getPosition().y + (bottonH - moneyText.getLocalBounds().size.y) / 2));
 
-        sf::Color shipColor(40, 120, 40);
+        logMessage = "Select an action";
+        logText = new sf::Text(font, logMessage, 18);
+        logText->setFillColor(sf::Color(255,255,150));
+        logText->setPosition(sf::Vector2f(10.f, 560.f));
 
-        novaBotton    = sf::RectangleShape(sf::Vector2f(bottonY, bottonH));
-        pulsarBotton  = sf::RectangleShape(sf::Vector2f(bottonY, bottonH));
-        aegisBotton   = sf::RectangleShape(sf::Vector2f(bottonY, bottonH));
-        quasarBotton  = sf::RectangleShape(sf::Vector2f(bottonY, bottonH));
-        nebulaBotton  = sf::RectangleShape(sf::Vector2f(bottonY, bottonH));
-        vortixBotton  = sf::RectangleShape(sf::Vector2f(bottonY, bottonH));
-        exitBotton  = sf::RectangleShape(sf::Vector2f(bottonY, bottonH));
+        turnText = new sf::Text(font, "", 20);
+        turnText->setFillColor(sf::Color::White);
+        turnText->setOutlineColor(sf::Color::Black);
+        turnText->setOutlineThickness(2.f);
+        turnText->setPosition(sf::Vector2f(10.f, 630.f));
 
-        float shipPositions[] = {30.f, 100.f, 170.f, 240.f, 310.f, 380.f, 450.f};
-        std::vector<sf::RectangleShape*> shipBotton = {&novaBotton ,&pulsarBotton,&aegisBotton,&quasarBotton,&nebulaBotton,&vortixBotton,&exitBotton};
+        endTurnButton = sf::RectangleShape(sf::Vector2f(240.f , 55.f));
+        endTurnButton.setFillColor(sf::Color(80, 160, 80));
+        endTurnButton.setOutlineColor(sf::Color::White);
+        endTurnButton.setOutlineThickness(2.f);
+        endTurnButton.setPosition(sf::Vector2f(50.f, 700.f));
 
-        for (int i = 0; i < 7; i++) {
-            shipBotton[i]->setFillColor(i < 6 ? shipColor : sf::Color(120, 30, 30));
-            shipBotton[i]->setOutlineColor(sf::Color::White);
-            shipBotton[i]->setOutlineThickness(2.f);
-            shipBotton[i]->setPosition(sf::Vector2f(bottonX, shipPositions[i]));
+        endTurnText = new sf::Text(font, "END TURN", 22);
+        endTurnText->setFillColor(sf::Color::White);
+        endTurnText->setOutlineColor(sf::Color::Black);
+        endTurnText->setOutlineThickness(2.f);
+        endTurnText->setPosition(sf::Vector2f(
+        endTurnButton.getPosition().x + (240 - endTurnText->getLocalBounds().size.x) / 2,
+        endTurnButton.getPosition().y + (55  - endTurnText->getLocalBounds().size.y) / 2));
+     
+
+        showShipMenu = false;
+        shipMenuBox = sf::RectangleShape(sf::Vector2f(240.f, 220.f));
+        shipMenuBox.setFillColor(sf::Color(20, 20, 60));
+        shipMenuBox.setOutlineColor(sf::Color::White);
+        shipMenuBox.setOutlineThickness(2.f);
+        shipMenuBox.setPosition(sf::Vector2f(50.f, 60.f));
+
+        std::string shipNames[6] = {"1. Nova (200)", "2. Pulsar (375)", "3. Aegis (400)","4. Quasar (400)", "5. Nebula (225)", "6. Vortix (280)"};
+
+        for (int i = 0; i < 6; i++) {
+            shipOptions[i] = new sf::Text(font, shipNames[i], 15);
+            shipOptions[i]->setFillColor(sf::Color::White);
+            shipOptions[i]->setPosition(sf::Vector2f(60.f, 70.f + i * 32.f));
         }
 
-        std::string shipNames[] = {"NOVA","PULSAR","AEGIS","QUASAR","NEBULA","VORTIX","CANCEL"};
-        std::vector<sf::Text*> shipText = {&novaText,&pulsarText,&aegisText,&quasarText,&nebulaText,&votixText,&exitText};
-        sf::Text* allShipTexts[] = {&novaText,&pulsarText,&aegisText,&quasarText,&nebulaText,&votixText,&exitText};
 
-        for (int i = 0; i < 7; i++) {
-            *shipText[i] = sf::Text(font, shipNames[i], 18);
-            shipText[i]->setFillColor(sf::Color::White);
-            shipText[i]->setPosition(sf::Vector2f(
-                bottonX + (bottonY - shipText[i]->getLocalBounds().size.x) / 2,
-                shipPositions[i] + (bottonH - shipText[i]->getLocalBounds().size.y) / 2));
-        }
+        waitingStarted = false;
+        waitingText = new sf::Text(font, "", 36);
+        waitingText->setFillColor(sf::Color::White);
+        waitingText->setOutlineColor(sf::Color::Black);
+        waitingText->setOutlineThickness(3.f);
+
+        gameOverText = new sf::Text(font, "GAME OVER", 64);
+        gameOverText->setFillColor(sf::Color::White);
+        gameOverText->setOutlineColor(sf::Color::Black);
+        gameOverText->setOutlineThickness(3.f);
+        gameOverText->setPosition(sf::Vector2f(
+            (1200 - gameOverText->getLocalBounds().size.x) / 2, 200));
+
+        winnerText = new sf::Text(font, "", 36);
+        winnerText->setFillColor(sf::Color(255, 215, 0));
+        winnerText->setOutlineColor(sf::Color::Black);
+        winnerText->setOutlineThickness(2.f);
+
+        restartButton = sf::RectangleShape(sf::Vector2f(260.f, 60.f));
+        restartButton.setFillColor(sf::Color(30, 100, 200));
+        restartButton.setOutlineColor(sf::Color::White);
+        restartButton.setOutlineThickness(2.f);
+        restartButton.setPosition(sf::Vector2f((1200 - 260) / 2, 480.f));
+
+        restartText = new sf::Text(font, "PLAY AGAIN", 26);
+        restartText->setFillColor(sf::Color::White);
+        restartText->setOutlineColor(sf::Color::Black);
+        restartText->setOutlineThickness(2.f);
+        restartText->setPosition(sf::Vector2f(
+            restartButton.getPosition().x + (260 - restartText->getLocalBounds().size.x) / 2,
+            restartButton.getPosition().y + (60  - restartText->getLocalBounds().size.y) / 2));
+        
     }
 
 
@@ -307,8 +368,8 @@ private:
     void menuEvent(const sf::Event& event) {
         if (const auto* mousePressed = event.getIf<sf::Event::MouseButtonPressed>()) {
             if (mousePressed->button == sf::Mouse::Button::Left) {
-                sf::Vector2f mousePosition(mousePressed->position);
-                if (button.getGlobalBounds().contains(mousePosition)) {
+                sf::Vector2f mousePos(mousePressed->position);
+                if (button.getGlobalBounds().contains(mousePos)) {
                     state = GameState::NAMES;
                 }
             }
@@ -319,14 +380,14 @@ private:
     void namesEvent(const sf::Event& event) {
         if (const auto* mousePress = event.getIf<sf::Event::MouseButtonPressed>()) {
             if (mousePress->button == sf::Mouse::Button::Left) {
-                sf::Vector2f mousePosition(mousePress->position.x, mousePress->position.y);
-                if (p1Box.getGlobalBounds().contains(mousePosition)) {
+                sf::Vector2f mousePos(mousePress->position.x, mousePress->position.y);
+                if (p1Box.getGlobalBounds().contains(mousePos)) {
                     activePlayer = 1;
-                } else if (p2Box.getGlobalBounds().contains(mousePosition)) {
+                } else if (p2Box.getGlobalBounds().contains(mousePos)) {
                     activePlayer = 2;
                 }
 
-                if (startButton.getGlobalBounds().contains(mousePosition)) {
+                if (startButton.getGlobalBounds().contains(mousePos)) {
                     if (!player1Name.empty() && !player2Name.empty()) {
                         game = new Game(player1Name, player2Name);
                         state = GameState::PLAYING;
@@ -370,64 +431,19 @@ private:
     }
 
 
-    void playingEvent(const sf::Event& event) {
-        if (const auto* mousePress = event.getIf<sf::Event::MouseButtonPressed>()) {
-            if (mousePress->button == sf::Mouse::Button::Left) {
-                sf::Vector2f mousePosition(mousePress->position.x, mousePress->position.y);
 
-                if (!deployMenuOpen) {
-
-                    if (buyBotton.getGlobalBounds().contains(mousePosition)) {
-                        deployMenuOpen = true;
-                        game->selectDeploy(0);
-                    }
-                    else if (moveBotton.getGlobalBounds().contains(mousePosition)) {
-                        game->selectedMove();
-                    }
-                    else if (attackBotton.getGlobalBounds().contains(mousePosition)) {
-                        game->selectAttack();
-                    }
-                    else if (upgradeBotton.getGlobalBounds().contains(mousePosition)) {
-                        
-                    }
-                    else {
-
-                        int col = (int)((mousePosition.x - gridX) / cellSize);
-                        int row = (int)((mousePosition.y - gridY) / cellSize);
-
-                        if (col >= 0 && col < cols && row >= 0 && row < rows) {
-                            std::string result = game->gridClick(row, col);
-                            printf("%s\n", result.c_str());
-                        }
-                    }
-
-                } else {
-                    if (exitBotton.getGlobalBounds().contains(mousePosition)) {
-                        deployMenuOpen = false;
-                        game->cancelAction();
-                    }
-                    else if (novaBotton.getGlobalBounds().contains(mousePosition))   { game->selectDeploy(1); deployMenuOpen = false; }
-                    else if (pulsarBotton.getGlobalBounds().contains(mousePosition)) { game->selectDeploy(2); deployMenuOpen = false; }
-                    else if (aegisBotton.getGlobalBounds().contains(mousePosition))  { game->selectDeploy(3); deployMenuOpen = false; }
-                    else if (quasarBotton.getGlobalBounds().contains(mousePosition)) { game->selectDeploy(4); deployMenuOpen = false; }
-                    else if (nebulaBotton.getGlobalBounds().contains(mousePosition)) { game->selectDeploy(5); deployMenuOpen = false; }
-                    else if (vortixBotton.getGlobalBounds().contains(mousePosition)) { game->selectDeploy(6); deployMenuOpen = false; }
-                }
-            }
-        }
-    }  
 
     void updateHover() {
-        sf::Vector2f mousePosition = sf::Vector2f(sf::Mouse::getPosition(window));
+        sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
 
         if (state == GameState::MENU) {
-            button.setFillColor(button.getGlobalBounds().contains(mousePosition) ? hoverColor : normalColor);
+            button.setFillColor(button.getGlobalBounds().contains(mousePos) ? hoverColor : normalColor);
         }
 
         if (state == GameState::NAMES) {
             p1Box.setOutlineColor(activePlayer == 1 ? sf::Color::Yellow : sf::Color::White);
             p2Box.setOutlineColor(activePlayer == 2 ? sf::Color::Yellow : sf::Color::White);
-            startButton.setFillColor(startButton.getGlobalBounds().contains(mousePosition) ? startHover : statNormal);
+            startButton.setFillColor(startButton.getGlobalBounds().contains(mousePos) ? startHover : statNormal);
         }
 
         if (state == GameState::PLAYING) {
@@ -436,10 +452,10 @@ private:
             sf::Color attackNormal(180, 30, 30);
             sf::Color attackHover(220, 60, 60);
 
-            buyBotton.setFillColor(buyBotton.getGlobalBounds().contains(mousePosition)     ? buyHover    : buyNormal);
-            moveBotton.setFillColor(moveBotton.getGlobalBounds().contains(mousePosition)   ? buyHover    : buyNormal);
-            upgradeBotton.setFillColor(upgradeBotton.getGlobalBounds().contains(mousePosition) ? buyHover : buyNormal);
-            attackBotton.setFillColor(attackBotton.getGlobalBounds().contains(mousePosition) ? attackHover : attackNormal);
+            buyBotton.setFillColor(buyBotton.getGlobalBounds().contains(mousePos)     ? buyHover    : buyNormal);
+            moveBotton.setFillColor(moveBotton.getGlobalBounds().contains(mousePos)   ? buyHover    : buyNormal);
+            upgradeBotton.setFillColor(upgradeBotton.getGlobalBounds().contains(mousePos) ? buyHover : buyNormal);
+            attackBotton.setFillColor(attackBotton.getGlobalBounds().contains(mousePos) ? attackHover : attackNormal);
         }
     }
 
@@ -488,55 +504,197 @@ private:
             }
         }
 
-        sf::Text shipLabel(font, "", 18);
-        shipLabel.setOutlineColor(sf::Color::Black);
-        shipLabel.setOutlineThickness(1.f);
-
-        const auto& ships = game->getCurrentArmy().getAllShips();
-        for (Starship* ship : ships) {
-            if (!ship->isAlive()) continue;
-
-            float x = gridX + ship->getCol() * cellSize;
-            float y = gridY + ship->getRow() * cellSize;
-
-            std::string label = ship->getAlgorithm().substr(0, 1);
-            shipLabel.setString(label);
-            shipLabel.setFillColor(sf::Color::Yellow);
-            shipLabel.setPosition(sf::Vector2f(
-                x + (cellSize - shipLabel.getLocalBounds().size.x) / 2,
-                y + (cellSize - shipLabel.getLocalBounds().size.y) / 2
-            ));
-            window.draw(shipLabel);
-        }
-
         window.draw(blackScreen);
         window.draw(hudDivision);
 
-        window.draw(actionPointsBox);         
-        window.draw(actionPointsText);
+        window.draw(buyBotton);     
+        window.draw(buyText);
+        window.draw(moveBotton);    
+        window.draw(moveText);
+        window.draw(upgradeBotton); 
+        window.draw(upgradeText);
+        window.draw(attackBotton);  
+        window.draw(attackText);
+
+        window.draw(apBox);         
+        window.draw(apText);
         window.draw(moneyBox);      
         window.draw(moneyText);
+    }
 
-        if (!deployMenuOpen) {
+    void playingEvent(const sf::Event& event){
+        if(const auto* mousePress = event.getIf<sf::Event::MouseButtonPressed>()){
+            if (mousePress->button == sf::Mouse::Button::Left){
+                sf::Vector2f mousePos(mousePress->position.x, mousePress->position.y);
+
+                if(buyBotton.getGlobalBounds().contains(mousePos)){
+                    showShipMenu = !showShipMenu;
+                    game->cancelAction();
+                    logMessage = "Select ship type";
+                }
+
+                if(moveBotton.getGlobalBounds().contains(mousePos)){
+                    showShipMenu = false;
+                    game->selectedMove();
+                    logMessage = "Click ship to move";
+                }
+
+                if(attackBotton.getGlobalBounds().contains(mousePos)){
+                    showShipMenu = false;
+                    game->selectAttack();
+                    logMessage = "Click attacking ship";
+                }
+
+                if(showShipMenu){
+                    for(int i = 0; i < 6; i++){
+                        if(shipOptions[i]->getGlobalBounds().contains(mousePos)){
+                            game->selectDeploy(i+1);
+                            showShipMenu = false;
+                            logMessage = "Click cell to deploy";
+                        }
+                    }
+                }
+
+                if(endTurnButton.getGlobalBounds().contains(mousePos)){
+                    game->cancelAction();
+                    showShipMenu = false;
+
+                    if(game->isGameOver()){
+                        winnerText->setString(game->getWinner() + " wins!");
+                        winnerText->setPosition(sf::Vector2f((1200 - winnerText->getLocalBounds().size.x) / 2, 350.f));
+                        state = GameState::GAMEOVER;
+                        return;
+                    }
+
+                    std::string nextPlayer;
+                    if(game->getCurrentTurn() == 1){
+                        nextPlayer = player2Name;
+                    }else{
+                        nextPlayer = player1Name;
+                    }
+
+                    waitingText->setString("Get ready " + nextPlayer + "...");
+                    waitingText->setPosition(sf::Vector2f((1200 - waitingText->getLocalBounds().size.x) / 2, 350.f));
+                    waitingClock.restart();
+                    waitingStarted = true;
+                    state = GameState::WAITING;
+
+                    game->endTurn();
+                    game->startTurn();
+
+                }
+
+                float gx = gridX;
+                float gy = gridY;
+                float gs = cellSize;
+
+                if(mousePos.x >= gx && mousePos.x <= gx + cols * gs && mousePos.y >= gy && mousePos.y <= gy + rows * gs){
+                    int clickedCol = (int)((mousePos.x -gx) / gs);
+                    int clickedRow = (int)((mousePos.y -gy) / gs);
+
+                    if(game->getMode() == ActionMode::NONE && upgradeBotton.getGlobalBounds().contains(mousePos)){
+                        
+                    }
+
+                    logMessage = game->gridClick(clickedRow, clickedCol);
+
+                    if(game->isGameOver()){
+                        winnerText->setString(game->getWinner() + " wins!");
+                        winnerText->setPosition(sf::Vector2f((1200 - winnerText->getLocalBounds().size.x) / 2,350.f));
+                        state = GameState::GAMEOVER;
+                    }
+                }
+            }
+        }
+
+        if(const auto* keyPress = event.getIf<sf::Event::KeyPressed>()){
+            if(keyPress->code == sf::Keyboard::Key::Escape){
+                game->cancelAction();
+                showShipMenu = false;
+                logMessage = "Cancelled";
+            }
+        }
+    }
+
+    void gameOverEvent(const sf::Event& event){
+
+        if (const auto* mousePress = event.getIf<sf::Event::MouseButtonPressed>()) {
+
+            if (mousePress->button == sf::Mouse::Button::Left) {
+
+                sf::Vector2f mousePos(mousePress->position.x, mousePress->position.y);
+
+                if (restartButton.getGlobalBounds().contains(mousePos)) {
+
+                    delete game;
+                    game = nullptr;
+                    player1Name = "";
+                    player2Name = "";
+                    state = GameState::MENU;
+
+                }
+            }
+        }
+    }
+
+
+    void drawPlaying(){
+        Army& current = game->getCurrentArmy();
+        Army& enemy = game->getEnemyArmy();
+
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < cols; col++){
+                
+                float x = gridX + (col * cellSize);
+                float y = grudY + (row * cellSize);
+                cell.setPosition(sf::Vector2f(x,y));
+
+                Starship* ship = current.getShip(row,col);
+                if(ship!= nullptr){
+                    cell.setFillColor(sf::Color::Green);
+                }else if (row < 5 ){
+                    cell.setFillColor(sf::Color(15, 15, 40));
+                }else{
+                    cell.setFillColor(sf::Color::Cyan);
+                }
+
+                window.draw(cell);
+            }
+        }
+        window.draw(hudDivision);
+
+        if (showShipMenu) {
+            
+            window.draw(shipMenuBox);
+            for (int i = 0; i < 6; i++){
+                window.draw(shipOptions[i]);
+            }
+                
+        } else {
             window.draw(buyBotton);     window.draw(buyText);
             window.draw(moveBotton);    window.draw(moveText);
             window.draw(upgradeBotton); window.draw(upgradeText);
             window.draw(attackBotton);  window.draw(attackText);
-        } else {
-            window.draw(novaBotton);   window.draw(novaText);
-            window.draw(pulsarBotton); window.draw(pulsarText);
-            window.draw(aegisBotton);  window.draw(aegisText);
-            window.draw(quasarBotton); window.draw(quasarText);
-            window.draw(nebulaBotton); window.draw(nebulaText);
-            window.draw(vortixBotton); window.draw(votixText);
-            window.draw(exitBotton); window.draw(exitText);
         }
 
-        actionPointsText.setString("AP: " + std::to_string(game->getAP()));
-        moneyText.setString("$: " + std::to_string(game->getCurrentArmy().getCredits()));
+
+        apText.setString("AP: " + std::to_string(game->getAP()));
+        moneyText.setString("$: " + std::to_string(current.getCredits()));
+        turnText->setString("Turn: " + current.getName());
+
+        window.draw(apBox);      
+        window.draw(apText);
+
+        window.draw(moneyBox);   
+        window.draw(moneyText);
+
+        window.draw(endTurnButton); 
+        window.draw(endTurnText);
+        window.draw(turnText);
+
+        logText->setString(logMessage);
+        window.draw(logText);
     }
-
-
 public:
 
     GUI() :
@@ -558,20 +716,13 @@ public:
         upgradeText(font, "", 0),
         moveText(font, "", 0),
         attackText(font, "", 0),
-        actionPointsText(font, "", 0),
+        apText(font, "", 0),
         moneyText(font, "", 0),
         normalColor(30, 100, 200),
         hoverColor(60, 140, 255),
         activePlayer(1),
         gridX(0), gridY(0),
-        novaText(font, "", 0),
-        pulsarText(font, "", 0), 
-        aegisText(font, "", 0), 
-        quasarText(font, "", 0), 
-        nebulaText(font, "", 0), 
-        votixText(font, "", 0), 
-        exitText(font, "", 0),
-        //cols(10), rows(10), cellSize(50.f),
+        cols(10), rows(10), cellSize(50.f),
         cell(sf::Vector2f(0,0)),
         statNormal(30,100,200),
         startHover(60,140,255)
@@ -618,8 +769,23 @@ public:
                 if (state == GameState::NAMES) 
                     namesEvent(*event);
 
-                if (state == GameState::PLAYING)
+                if(state == GameState::PLAYING){
                     playingEvent(*event);
+                }
+
+                if(state == GameState::GAMEOVER){
+                    gameOverEvent(*event);
+                }   
+            }
+
+            if (state == GameState::WAITING && waitingStarted) {
+                if (waitingClock.getElapsedTime().asSeconds() >= 3.f) {
+
+                    waitingStarted = false;
+                    logMessage = "Select an action";
+                    state = GameState::PLAYING;
+
+                }
             }
 
             updateHover();
@@ -635,6 +801,13 @@ public:
 
             if (state == GameState::PLAYING) 
                 drawPlaying();
+
+            // if (state == GameState::WAITING){
+            //     drawWatiging();
+            // }
+            // if (state== GameState::GAMEOVER){
+            //     drawGameOer();
+            // }
 
             window.display();
         }
