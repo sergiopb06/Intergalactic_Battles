@@ -15,6 +15,27 @@ enum class GameState {
 class GUI {
 private:
 
+    std::string logMessage;
+    sf::Text* logText;
+    sf::Clock waitingClock; 
+    bool waitingStarted;
+
+    // Ship selector 
+    bool showShipMenu;
+    sf::RectangleShape shipMenuBox;
+    sf::Text* shipOptions[6];
+
+    sf::Text* turnText;
+    sf::RectangleShape endTurnButton;
+    sf::Text* endTurnText;
+
+    sf::Text* waitingText;
+
+    sf::Text* gameOverText;
+    sf::Text* winnerText;
+    sf::RectangleShape restartButton;
+    sf::Text* restartText;
+
 
     sf::RenderWindow window;
     GameState state;
@@ -264,6 +285,81 @@ private:
         moneyText = sf::Text(font, "$: ", 22);
         moneyText.setFillColor(sf::Color(100, 255, 100));
         moneyText.setPosition(sf::Vector2f(bottonX + (bottonY - moneyText.getLocalBounds().size.x) / 2, moneyBox.getPosition().y + (bottonH - moneyText.getLocalBounds().size.y) / 2));
+
+        logMessage = "Select an action";
+        logText = new sf::Text(font, logMessage, 18);
+        logText->setFillColor(sf::Color(255,255,150));
+        logText->setPosition(sf::Vector2f(10.f, 560.f));
+
+        turnText = new sf::Text(font, "", 20);
+        turnText->setFillColor(sf::Color::White);
+        turnText->setOutlineColor(sf::Color::Black);
+        turnText->setOutlineThickness(2.f);
+        turnText->setPosition(sf::Vector2f(10.f, 630.f));
+
+        endTurnButton = sf::RectangleShape(sf::Vector2f(240.f , 55.f));
+        endTurnButton.setFillColor(sf::Color(80, 160, 80));
+        endTurnButton.setOutlineColor(sf::Color::White);
+        endTurnButton.setOutlineThickness(2.f);
+        endTurnButton.setPosition(sf::Vector2f(50.f, 700.f));
+
+        endTurnText = new sf::Text(font, "END TURN", 22);
+        endTurnText->setFillColor(sf::Color::White);
+        endTurnText->setOutlineColor(sf::Color::Black);
+        endTurnText->setOutlineThickness(2.f);
+        endTurnText->setPosition(sf::Vector2f(
+        endTurnButton.getPosition().x + (240 - endTurnText->getLocalBounds().size.x) / 2,
+        endTurnButton.getPosition().y + (55  - endTurnText->getLocalBounds().size.y) / 2));
+     
+
+        showShipMenu = false;
+        shipMenuBox = sf::RectangleShape(sf::Vector2f(240.f, 220.f));
+        shipMenuBox.setFillColor(sf::Color(20, 20, 60));
+        shipMenuBox.setOutlineColor(sf::Color::White);
+        shipMenuBox.setOutlineThickness(2.f);
+        shipMenuBox.setPosition(sf::Vector2f(50.f, 60.f));
+
+        std::string shipNames[6] = {"1. Nova (200)", "2. Pulsar (375)", "3. Aegis (400)","4. Quasar (400)", "5. Nebula (225)", "6. Vortix (280)"};
+
+        for (int i = 0; i < 6; i++) {
+            shipOptions[i] = new sf::Text(font, shipNames[i], 15);
+            shipOptions[i]->setFillColor(sf::Color::White);
+            shipOptions[i]->setPosition(sf::Vector2f(60.f, 70.f + i * 32.f));
+        }
+
+
+        waitingStarted = false;
+        waitingText = new sf::Text(font, "", 36);
+        waitingText->setFillColor(sf::Color::White);
+        waitingText->setOutlineColor(sf::Color::Black);
+        waitingText->setOutlineThickness(3.f);
+
+        gameOverText = new sf::Text(font, "GAME OVER", 64);
+        gameOverText->setFillColor(sf::Color::White);
+        gameOverText->setOutlineColor(sf::Color::Black);
+        gameOverText->setOutlineThickness(3.f);
+        gameOverText->setPosition(sf::Vector2f(
+            (1200 - gameOverText->getLocalBounds().size.x) / 2, 200));
+
+        winnerText = new sf::Text(font, "", 36);
+        winnerText->setFillColor(sf::Color(255, 215, 0));
+        winnerText->setOutlineColor(sf::Color::Black);
+        winnerText->setOutlineThickness(2.f);
+
+        restartButton = sf::RectangleShape(sf::Vector2f(260.f, 60.f));
+        restartButton.setFillColor(sf::Color(30, 100, 200));
+        restartButton.setOutlineColor(sf::Color::White);
+        restartButton.setOutlineThickness(2.f);
+        restartButton.setPosition(sf::Vector2f((1200 - 260) / 2, 480.f));
+
+        restartText = new sf::Text(font, "PLAY AGAIN", 26);
+        restartText->setFillColor(sf::Color::White);
+        restartText->setOutlineColor(sf::Color::Black);
+        restartText->setOutlineThickness(2.f);
+        restartText->setPosition(sf::Vector2f(
+            restartButton.getPosition().x + (260 - restartText->getLocalBounds().size.x) / 2,
+            restartButton.getPosition().y + (60  - restartText->getLocalBounds().size.y) / 2));
+        
     }
 
 
@@ -426,7 +522,179 @@ private:
         window.draw(moneyText);
     }
 
+    void playingEvent(const sf::Event& event){
+        if(const auto* mousePress = event.getIf<sf::Event::MouseButtonPressed>()){
+            if (mousePress->button == sf::Mouse::Button::Left){
+                sf::Vector2f mousePos(mousePress->position.x, mousePress->position.y);
 
+                if(buyBotton.getGlobalBounds().contains(mousePos)){
+                    showShipMenu = !showShipMenu;
+                    game->cancelAction();
+                    logMessage = "Select ship type";
+                }
+
+                if(moveBotton.getGlobalBounds().contains(mousePos)){
+                    showShipMenu = false;
+                    game->selectedMove();
+                    logMessage = "Click ship to move";
+                }
+
+                if(attackBotton.getGlobalBounds().contains(mousePos)){
+                    showShipMenu = false;
+                    game->selectAttack();
+                    logMessage = "Click attacking ship";
+                }
+
+                if(showShipMenu){
+                    for(int i = 0; i < 6; i++){
+                        if(shipOptions[i]->getGlobalBounds().contains(mousePos)){
+                            game->selectDeploy(i+1);
+                            showShipMenu = false;
+                            logMessage = "Click cell to deploy";
+                        }
+                    }
+                }
+
+                if(endTurnButton.getGlobalBounds().contains(mousePos)){
+                    game->cancelAction();
+                    showShipMenu = false;
+
+                    if(game->isGameOver()){
+                        winnerText->setString(game->getWinner() + " wins!");
+                        winnerText->setPosition(sf::Vector2f((1200 - winnerText->getLocalBounds().size.x) / 2, 350.f));
+                        state = GameState::GAMEOVER;
+                        return;
+                    }
+
+                    std::string nextPlayer;
+                    if(game->getCurrentTurn() == 1){
+                        nextPlayer = player2Name;
+                    }else{
+                        nextPlayer = player1Name;
+                    }
+
+                    waitingText->setString("Get ready " + nextPlayer + "...");
+                    waitingText->setPosition(sf::Vector2f((1200 - waitingText->getLocalBounds().size.x) / 2, 350.f));
+                    waitingClock.restart();
+                    waitingStarted = true;
+                    state = GameState::WAITING;
+
+                    game->endTurn();
+                    game->startTurn();
+
+                }
+
+                float gx = gridX;
+                float gy = gridY;
+                float gs = cellSize;
+
+                if(mousePos.x >= gx && mousePos.x <= gx + cols * gs && mousePos.y >= gy && mousePos.y <= gy + rows * gs){
+                    int clickedCol = (int)((mousePos.x -gx) / gs);
+                    int clickedRow = (int)((mousePos.y -gy) / gs);
+
+                    if(game->getMode() == ActionMode::NONE && upgradeBotton.getGlobalBounds().contains(mousePos)){
+                        
+                    }
+
+                    logMessage = game->gridClick(clickedRow, clickedCol);
+
+                    if(game->isGameOver()){
+                        winnerText->setString(game->getWinner() + " wins!");
+                        winnerText->setPosition(sf::Vector2f((1200 - winnerText->getLocalBounds().size.x) / 2,350.f));
+                        state = GameState::GAMEOVER;
+                    }
+                }
+            }
+        }
+
+        if(const auto* keyPress = event.getIf<sf::Event::KeyPressed>()){
+            if(keyPress->code == sf::Keyboard::Key::Escape){
+                game->cancelAction();
+                showShipMenu = false;
+                logMessage = "Cancelled";
+            }
+        }
+    }
+
+    void gameOverEvent(const sf::Event& event){
+
+        if (const auto* mousePress = event.getIf<sf::Event::MouseButtonPressed>()) {
+
+            if (mousePress->button == sf::Mouse::Button::Left) {
+
+                sf::Vector2f mousePos(mousePress->position.x, mousePress->position.y);
+
+                if (restartButton.getGlobalBounds().contains(mousePos)) {
+
+                    delete game;
+                    game = nullptr;
+                    player1Name = "";
+                    player2Name = "";
+                    state = GameState::MENU;
+
+                }
+            }
+        }
+    }
+
+
+    void drawPlaying(){
+        Army& current = game->getCurrentArmy();
+        Army& enemy = game->getEnemyArmy();
+
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < cols; col++){
+                
+                float x = gridX + (col * cellSize);
+                float y = grudY + (row * cellSize);
+                cell.setPosition(sf::Vector2f(x,y));
+
+                Starship* ship = current.getShip(row,col);
+                if(ship!= nullptr){
+                    cell.setFillColor(sf::Color::Green);
+                }else if (row < 5 ){
+                    cell.setFillColor(sf::Color(15, 15, 40));
+                }else{
+                    cell.setFillColor(sf::Color::Cyan);
+                }
+
+                window.draw(cell);
+            }
+        }
+        window.draw(hudDivision);
+
+        if (showShipMenu) {
+            
+            window.draw(shipMenuBox);
+            for (int i = 0; i < 6; i++){
+                window.draw(shipOptions[i]);
+            }
+                
+        } else {
+            window.draw(buyBotton);     window.draw(buyText);
+            window.draw(moveBotton);    window.draw(moveText);
+            window.draw(upgradeBotton); window.draw(upgradeText);
+            window.draw(attackBotton);  window.draw(attackText);
+        }
+
+
+        apText.setString("AP: " + std::to_string(game->getAP()));
+        moneyText.setString("$: " + std::to_string(current.getCredits()));
+        turnText->setString("Turn: " + current.getName());
+
+        window.draw(apBox);      
+        window.draw(apText);
+
+        window.draw(moneyBox);   
+        window.draw(moneyText);
+
+        window.draw(endTurnButton); 
+        window.draw(endTurnText);
+        window.draw(turnText);
+
+        logText->setString(logMessage);
+        window.draw(logText);
+    }
 public:
 
     GUI() :
@@ -500,6 +768,24 @@ public:
 
                 if (state == GameState::NAMES) 
                     namesEvent(*event);
+
+                if(state == GameState::PLAYING){
+                    playingEvent(*event);
+                }
+
+                if(state == GameState::GAMEOVER){
+                    gameOverEvent(*event);
+                }   
+            }
+
+            if (state == GameState::WAITING && waitingStarted) {
+                if (waitingClock.getElapsedTime().asSeconds() >= 3.f) {
+
+                    waitingStarted = false;
+                    logMessage = "Select an action";
+                    state = GameState::PLAYING;
+
+                }
             }
 
             updateHover();
@@ -515,6 +801,13 @@ public:
 
             if (state == GameState::PLAYING) 
                 drawPlaying();
+
+            // if (state == GameState::WAITING){
+            //     drawWatiging();
+            // }
+            // if (state== GameState::GAMEOVER){
+            //     drawGameOer();
+            // }
 
             window.display();
         }
