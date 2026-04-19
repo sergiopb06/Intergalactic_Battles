@@ -7,6 +7,7 @@ enum class ActionMode{
     DEPLOY,
     MOVE_FROM,
     MOVE_TO,
+    UPGRADE,
     ATTACK_FROM,
     ATTACK_TO
 };
@@ -21,11 +22,14 @@ private:
     ActionMode mode;
     int selectedShipType;
     int fromRow, fromCol;
+    bool gameStarted;
 
 public:
-    Game(std::string p1, std::string p2) : player1(p1), player2(p2), currentTurn(1), 
-        ap(AP_PER_TURN), mode(ActionMode::NONE), selectedShipType(0), fromRow(-1), fromCol(-1){}
-
+    Game(std::string p1, std::string p2) :
+            player1(p1), player2(p2), currentTurn(1),
+            ap(AP_PER_TURN), mode(ActionMode::NONE),
+            selectedShipType(0), fromRow(-1), fromCol(-1),
+            gameStarted(false) {}
 
     // -------Getters---------
 
@@ -72,6 +76,7 @@ public:
     }
 
     void endTurn(){
+        gameStarted = true;
         if(currentTurn == 1){
             currentTurn = 2;
         }else{
@@ -80,6 +85,9 @@ public:
     }
 
     bool isGameOver(){
+        if(!gameStarted) {
+            return false;
+        }
         return player1.lostCheck() || player2.lostCheck();
     }
 
@@ -87,7 +95,8 @@ public:
     std::string getWinner(){
         if(player2.lostCheck()){
             return player1.getName();
-        }else if(player1.lostCheck()){
+        }
+        if(player1.lostCheck()){
             return player2.getName();
         }
         return "";
@@ -112,12 +121,8 @@ public:
     }
 
     void selectUpgrade(int row, int col){
-        if(ap <= 0){
-            return;
-        }
-        if(getCurrentArmy().upgrade(row , col)){
-            ap--;
-        }
+        mode = ActionMode::UPGRADE;
+        fromRow = fromCol = -1;
     }
 
     void cancelAction(){
@@ -146,7 +151,7 @@ public:
             
 
         case ActionMode::MOVE_FROM:{
-            Starship* ship = getCurrentArmy().getShip(row,col);
+            Starship* ship = getCurrentArmy().getShip(row, col);
 
             if(ship == nullptr){
                 return "No ship in that cell";
@@ -164,6 +169,18 @@ public:
                 mode = ActionMode::NONE;
                 return "Ship moved";
             }
+            mode = ActionMode::NONE;
+            return "Can't move there";
+        }
+
+        case ActionMode::UPGRADE:{
+            if(getCurrentArmy().upgrade(row, col)){
+                ap--;
+                mode = ActionMode::NONE;
+                return "Ship upgraded!";
+            }
+            mode = ActionMode::NONE;
+            return "Can't upgrade";
         }
 
         case ActionMode::ATTACK_FROM:{
