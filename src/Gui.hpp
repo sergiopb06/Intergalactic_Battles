@@ -138,7 +138,7 @@ private:
  
     void drawShipAt(Starship* ship, int visualRow, sf::Color tint) {
         float x = gridX + ship->getCol() * cellSize;
-        float y = gridY + visualRow      * cellSize;
+        float y = gridY + visualRow * cellSize;
         shipSprite.setTexture(getShipTexture(ship->getAlgorithm()), true);
         float sx = (cellSize - 4.f) / shipSprite.getLocalBounds().size.x;
         float sy = (cellSize - 4.f) / shipSprite.getLocalBounds().size.y;
@@ -150,7 +150,7 @@ private:
 
     void drawHPBar(Starship* ship, int visualRow, sf::Color color) {
         float x = gridX + ship->getCol() * cellSize;
-        float y = gridY + visualRow      * cellSize;
+        float y = gridY + visualRow * cellSize;
         float hpRatio = std::max(0.f, std::min(1.f, ship->getHP() / (float)HP_CNST));
         sf::RectangleShape hpBar(sf::Vector2f((cellSize - 4) * hpRatio, 4.f));
         hpBar.setFillColor(color);
@@ -440,13 +440,13 @@ private:
         colorOwnShips = sf::RectangleShape(sf::Vector2f(14, 14));
         colorOwnShips.setFillColor(sf::Color(0, 180, 80));
         colorOwnShips.setPosition(sf::Vector2f(btnX, 538.f));
-        colorOwnShipsText = sf::Text(font, "Your ship", 13);
+        colorOwnShipsText = sf::Text(font, player1Name, 13);
         colorOwnShipsText.setFillColor(sf::Color(200,200,200));
         colorOwnShipsText.setPosition(sf::Vector2f(btnX + 18, 536.f));
         colorEnemyShips = sf::RectangleShape(sf::Vector2f(14, 14));
         colorEnemyShips.setFillColor(sf::Color(200, 50, 50));
         colorEnemyShips.setPosition(sf::Vector2f(btnX + 100, 538.f));
-        colorEnemyShipsText = sf::Text(font, "Enemy", 13);
+        colorEnemyShipsText = sf::Text(font, player2Name, 13);
         colorEnemyShipsText.setFillColor(sf::Color(200,200,200));
         colorEnemyShipsText.setPosition(sf::Vector2f(btnX + 118, 536.f));
         colorEmptyCells = sf::RectangleShape(sf::Vector2f(14, 14));
@@ -706,8 +706,7 @@ private:
                     Starship* ship = current.getShip(vrow, col);
                     cell.setFillColor(ship ? sf::Color(0, 180, 80) : sf::Color(20, 60, 120));
                 } else {
-                    int realRow = 4 - vrow;
-                    if (enemy.getDeadShip(realRow, col) != nullptr)
+                    if (enemy.getDeadShip(vrow, col) != nullptr)
                         cell.setFillColor(sf::Color(100, 30, 30));
                     else
                         cell.setFillColor(sf::Color(15, 15, 40));
@@ -721,7 +720,7 @@ private:
         zoneLine.setPosition(sf::Vector2f(gridX, gridY + 5 * cellSize));
         window.draw(zoneLine);
  
-        sf::Text ownLabel(font, "YOUR ZONE", 13);
+        sf::Text ownLabel(font, player1Name, 13);
         ownLabel.setFillColor(sf::Color(100, 220, 100));
         ownLabel.setOutlineColor(sf::Color::Black);
         ownLabel.setOutlineThickness(1.f);
@@ -737,7 +736,10 @@ private:
  
         for (Starship* ship : enemy.getAllShips()) {
             if (!ship->isAlive()) continue;
-            int vrow = 4 - ship->getRow();
+            int vrow = ship->getRow();
+            if (vrow < 0 || vrow >= 5) continue;
+            std::cout << "Enemy row: " << ship->getRow() 
+            << " -> visual: " << vrow << std::endl;
             drawShipAt(ship, vrow, sf::Color(255, 180, 180));
             drawHPBar(ship, vrow, sf::Color(255, 80, 80));
         }
@@ -772,15 +774,22 @@ private:
         logText.setString(logMessage);
         window.draw(logText);
  
-        // INTERFERENCIA DE RADAR — siempre encima, siempre en zona 0-4
-        sf::RectangleShape radarJam(sf::Vector2f(cols * cellSize, 5 * cellSize));
-        radarJam.setPosition(sf::Vector2f(gridX, gridY));
+       sf::RectangleShape radarJam(sf::Vector2f(cols * cellSize, 5 * cellSize));
+
+        if (game->getCurrentTurn() == 1) {
+            radarJam.setPosition(sf::Vector2f(gridX, gridY));
+        } else {
+            radarJam.setPosition(sf::Vector2f(gridX, gridY + 5 * cellSize));
+        }
+
         radarJam.setFillColor(sf::Color(0, 0, 0, 235));
         window.draw(radarJam);
  
+        float radarY = (game->getCurrentTurn() == 1) ? gridY : gridY + 5 * cellSize;
+
         for (int i = 0; i < 5 * (int)cellSize; i += 4) {
             sf::RectangleShape scanline(sf::Vector2f(cols * cellSize, 1.f));
-            scanline.setPosition(sf::Vector2f(gridX, gridY + i));
+            scanline.setPosition(sf::Vector2f(gridX, radarY + i));
             scanline.setFillColor(sf::Color(0, 255, 80, 18));
             window.draw(scanline);
         }
@@ -791,10 +800,11 @@ private:
         jamLabel.setOutlineThickness(1.f);
         jamLabel.setPosition(sf::Vector2f(
             gridX + (cols * cellSize - jamLabel.getLocalBounds().size.x) / 2.f,
-            gridY + 5 * cellSize / 2.f - jamLabel.getLocalBounds().size.y));
+            radarY + (5 * cellSize) / 2.f - jamLabel.getLocalBounds().size.y
+        ));
         window.draw(jamLabel);
  
-        sf::Text enemyLabel(font, "ENEMY", 13);
+        sf::Text enemyLabel(font, player2Name, 13);
         enemyLabel.setFillColor(sf::Color(255, 100, 100, 200));
         enemyLabel.setOutlineColor(sf::Color::Black);
         enemyLabel.setOutlineThickness(1.f);
