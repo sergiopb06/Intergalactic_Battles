@@ -14,7 +14,7 @@ private:
             file << "Algorithm: " << ship->getAlgorithm() << "\n";
             file << "Total Searches: " << ship->getTotalSearches() << "\n";
             file << "Total Iterations: " << ship->getTotalIterations() << "\n";
-            file << "Total Searches: " << ship->getCPUTime() << "\n";
+            file << "Total CPU Time (micro seconds): " << ship->getCPUTime() << "\n";
 
             file << "Upgrade History (max extracted): ";
             if(ship->getUprdLog().empty()) {
@@ -34,7 +34,7 @@ private:
 
 public:
     static void writeFile(Army& player1, Army& player2) {
-        std::ofstream file("battleLog.txt");
+        std::ofstream file("battleLog.txt", std::ios::app);
         if(!file.is_open()) {
             std::cout << "Error opening file" << std::endl;
             return;

@@ -1,7 +1,7 @@
 #pragma once 
 #include <cstdlib>
-#include <ctime>
 #include <vector>
+#include <chrono>
 
 #include "IStarShipCore.hpp"
 #include "Constants.hpp"
@@ -66,14 +66,14 @@ public:
     int atk() {
         int target = rand() % core->findMax();
 
-        clock_t start = clock();
+        auto start = std::chrono::high_resolution_clock::now();
         int iterations = core->search(target);
-        clock_t end = clock();
+        auto end = std::chrono::high_resolution_clock::now();
 
         totalSearches++;
         if(iterations != -1){
             totalIterations += iterations;
-            cpuTime += (double)(end - start) / CLOCKS_PER_SEC;
+            cpuTime += std::chrono::duration<double, std::micro>(end - start).count();
         }
 
         int dmg = 0;
