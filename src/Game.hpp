@@ -120,7 +120,7 @@ public:
         fromRow = fromCol = -1;
     }
 
-    void selectUpgrade(int row, int col){
+    void selectUpgrade(){
         mode = ActionMode::UPGRADE;
         fromRow = fromCol = -1;
     }
@@ -137,26 +137,28 @@ public:
             return "No AP left!";
         }
 
+        bool isEnemyZone = (row < 5);
+
         switch (mode){
 
         case ActionMode::DEPLOY:{
-            if(getCurrentArmy().deploy(selectedShipType, row, col)){
+            if (isEnemyZone)
+                return "Can't deploy in enemy zone!";
+            if (getCurrentArmy().deploy(selectedShipType, row, col)) {
                 ap--;
                 mode = ActionMode::NONE;
                 return "Ship deployed";
             }
-            return "Error";
-            
+            return "Can't deploy there";   
         }
             
 
         case ActionMode::MOVE_FROM:{
+            if (isEnemyZone) return "Select one of your ships";
             Starship* ship = getCurrentArmy().getShip(row, col);
-
             if(ship == nullptr){
                 return "No ship in that cell";
             }
-
             fromRow = row;
             fromCol = col;
             mode = ActionMode::MOVE_TO;
@@ -164,6 +166,7 @@ public:
         }
         
         case ActionMode::MOVE_TO:{
+            if (isEnemyZone) { mode = ActionMode::NONE; return "Can't move into enemy zone"; }
             if(getCurrentArmy().move(fromRow, fromCol, row, col)){
                 ap--;
                 mode = ActionMode::NONE;
@@ -174,7 +177,8 @@ public:
         }
 
         case ActionMode::UPGRADE:{
-            if(getCurrentArmy().upgrade(row, col)){
+            if (isEnemyZone) { mode = ActionMode::NONE; return "Can't upgrade enemy ships"; }
+            if (getCurrentArmy().upgrade(row, col)) {
                 ap--;
                 mode = ActionMode::NONE;
                 return "Ship upgraded!";
@@ -184,12 +188,9 @@ public:
         }
 
         case ActionMode::ATTACK_FROM:{
-            Starship* ship = getCurrentArmy().getShip(row,col);
-        
-            if(ship == nullptr){
-                return "No ship there";
-            }
-
+            if (isEnemyZone) return "Select one of your ships to attack with";
+            Starship* ship = getCurrentArmy().getShip(row, col);
+            if (!ship) return "No ship there";
             fromRow = row;
             fromCol = col;
             mode = ActionMode::ATTACK_TO;
@@ -197,26 +198,24 @@ public:
         }
         
         case ActionMode::ATTACK_TO:{
-            int result = getCurrentArmy().attack(fromRow, fromCol, row, col, getEnemyArmy());
-
-            if(result == -1){
+            if (!isEnemyZone) {
                 mode = ActionMode::ATTACK_FROM;
-                return "Invalid attack";
-
+                return "Click a cell in the enemy zone";
             }
-
+            int realEnemyRow = 4 - row;
+            int result = getCurrentArmy().attack(fromRow, fromCol, realEnemyRow, col, getEnemyArmy());
+            if (result == -1) { mode = ActionMode::ATTACK_FROM; return "Invalid attack"; }
             ap--;
             mode = ActionMode::NONE;
-
-            if(result == 0){
-                return "Miss";
-            }
+            if (result == 0) return "Miss";
             return "Hit!";
 
         }
+
         default:
             return "Select an action first";
         }
+        
     }
 
 };

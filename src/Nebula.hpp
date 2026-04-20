@@ -96,7 +96,7 @@ public:
     }
 
     std::string algorithmName() const override {
-        return "Nebula (MinHeap - linear arbitrary search)";
+        return "X Nebula (MinHeap - linear arbitrary search)";
     }
 
 };
