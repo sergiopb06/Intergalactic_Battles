@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include "Game.hpp"
+#include "BattleLog.hpp"
 
 enum class GameState {
     MENU,
@@ -614,6 +615,8 @@ private:
             if (mousePress->button == sf::Mouse::Button::Left) {
                 sf::Vector2f mousePos(mousePress->position.x, mousePress->position.y);
                 if (restartButton.getGlobalBounds().contains(mousePos)) {
+                    BatteLog::writeFile(game->getCurrentArmy(), game->getEnemyArmy());
+
                     delete game;
                     game = nullptr;
                     player1Name = "";
