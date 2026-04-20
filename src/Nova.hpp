@@ -89,7 +89,7 @@ public:
     }
 
     std::string algorithmName() const override {
-        return "Linear Search";
+        return "Nova (Linear Search)";
     }
 
 

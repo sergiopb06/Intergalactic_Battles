@@ -62,7 +62,13 @@ private:
     float gridX;
     float gridY;
 
-    sf::Texture manzana;
+    sf::Texture texNova;
+    sf::Texture texPulsar;
+    sf::Texture texAegis;
+    sf::Texture texQuasar;
+    sf::Texture texNebula;
+    sf::Texture texVortix;
+    sf::Sprite shipSprite;
     sf::RectangleShape blackScreen;
     sf::RectangleShape cell;
     sf::RectangleShape hudDivision;
@@ -102,6 +108,55 @@ private:
     sf::RectangleShape restartButton;
     sf::Text restartText;
 
+    // -------------------------
+    //      COLORS 
+    // -------------------------
+    sf::Text colorTitle;
+    sf::RectangleShape colorOwnShips;
+    sf::Text colorOwnShipsText;
+    sf::RectangleShape colorEnemyShips;
+    sf::Text colorEnemyShipsText;
+    sf::RectangleShape colorEmptyCells;
+    sf::Text colorEmptyCellsText;
+
+    // -------------------------
+    //      HELPERS
+    // -------------------------
+ 
+    sf::Texture& getShipTexture(const std::string& algorithm) {
+        if (algorithm.empty()) return texNova;
+        switch (algorithm[0]) {
+            case 'N': return texNova;
+            case 'P': return texPulsar;
+            case 'A': return texAegis;
+            case 'Q': return texQuasar;
+            case 'X': return texNebula;
+            case 'V': return texVortix;
+            default:  return texNova;
+        }
+    }
+ 
+    void drawShipAt(Starship* ship, int visualRow, sf::Color tint) {
+        float x = gridX + ship->getCol() * cellSize;
+        float y = gridY + visualRow      * cellSize;
+        shipSprite.setTexture(getShipTexture(ship->getAlgorithm()), true);
+        float sx = (cellSize - 4.f) / shipSprite.getLocalBounds().size.x;
+        float sy = (cellSize - 4.f) / shipSprite.getLocalBounds().size.y;
+        shipSprite.setScale(sf::Vector2f(sx, sy));
+        shipSprite.setPosition(sf::Vector2f(x + 2.f, y + 2.f));
+        shipSprite.setColor(tint);
+        window.draw(shipSprite);
+    }
+
+    void drawHPBar(Starship* ship, int visualRow, sf::Color color) {
+        float x = gridX + ship->getCol() * cellSize;
+        float y = gridY + visualRow      * cellSize;
+        float hpRatio = std::max(0.f, std::min(1.f, ship->getHP() / (float)HP_CNST));
+        sf::RectangleShape hpBar(sf::Vector2f((cellSize - 4) * hpRatio, 4.f));
+        hpBar.setFillColor(color);
+        hpBar.setPosition(sf::Vector2f(x + 2, y + cellSize - 6));
+        window.draw(hpBar);
+    }  
 
     // -------------------------
     //      INIT
@@ -209,7 +264,6 @@ private:
 
         blackScreen = sf::RectangleShape(sf::Vector2f(cols * cellSize, 5 * cellSize));
         blackScreen.setPosition(sf::Vector2f(gridX - 1, gridY - 1));
-        blackScreen.setTexture(&manzana);
 
         cell = sf::RectangleShape(sf::Vector2f(cellSize - 2, cellSize - 2));
         cell.setOutlineColor(sf::Color::White);
@@ -304,12 +358,12 @@ private:
         shipMenuBox.setPosition(sf::Vector2f(btnX, 60.f));
 
         std::string shipNames[6] = {
-            "1. Nova (200)",
-            "2. Pulsar (375)",
-            "3. Aegis (400)",
-            "4. Quasar (400)",
-            "5. Nebula (225)",
-            "6. Vortix (280)"
+            "1. Nova     (N) $200",
+            "2. Pulsar   (P) $375",
+            "3. Aegis    (A) $400",
+            "4. Quasar   (Q) $400",
+            "5. Nebula   (B) $225",
+            "6. Vortix   (V) $280"
         };
 
         for (int i = 0; i < 6; i++) {
@@ -378,6 +432,29 @@ private:
         restartText.setPosition(sf::Vector2f(
             restartButton.getPosition().x + (260 - restartText.getLocalBounds().size.x) / 2,
             restartButton.getPosition().y + (60  - restartText.getLocalBounds().size.y) / 2));
+
+        // color
+        colorTitle = sf::Text(font, "color:", 14);
+        colorTitle.setFillColor(sf::Color(200, 200, 200));
+        colorTitle.setPosition(sf::Vector2f(btnX, 520.f));
+        colorOwnShips = sf::RectangleShape(sf::Vector2f(14, 14));
+        colorOwnShips.setFillColor(sf::Color(0, 180, 80));
+        colorOwnShips.setPosition(sf::Vector2f(btnX, 538.f));
+        colorOwnShipsText = sf::Text(font, "Your ship", 13);
+        colorOwnShipsText.setFillColor(sf::Color(200,200,200));
+        colorOwnShipsText.setPosition(sf::Vector2f(btnX + 18, 536.f));
+        colorEnemyShips = sf::RectangleShape(sf::Vector2f(14, 14));
+        colorEnemyShips.setFillColor(sf::Color(200, 50, 50));
+        colorEnemyShips.setPosition(sf::Vector2f(btnX + 100, 538.f));
+        colorEnemyShipsText = sf::Text(font, "Enemy", 13);
+        colorEnemyShipsText.setFillColor(sf::Color(200,200,200));
+        colorEnemyShipsText.setPosition(sf::Vector2f(btnX + 118, 536.f));
+        colorEmptyCells = sf::RectangleShape(sf::Vector2f(14, 14));
+        colorEmptyCells.setFillColor(sf::Color(20, 60, 120));
+        colorEmptyCells.setPosition(sf::Vector2f(btnX + 170, 538.f));
+        colorEmptyCellsText = sf::Text(font, "Empty", 13);
+        colorEmptyCellsText.setFillColor(sf::Color(200,200,200));
+        colorEmptyCellsText.setPosition(sf::Vector2f(btnX + 188, 536.f));
     }
 
 
@@ -482,17 +559,17 @@ private:
                     }
                     if (moveBotton.getGlobalBounds().contains(mousePos)) {
                         game->selectedMove();
-                        logMessage = "Click ship to move";
+                        logMessage = "Click your ship to move";
                         return;
                     }
                     if (upgradeBotton.getGlobalBounds().contains(mousePos)) {
-                        game->cancelAction();
+                        game->selectUpgrade();
                         logMessage = "Click ship to upgrade";
                         return;
                     }
                     if (attackBotton.getGlobalBounds().contains(mousePos)) {
                         game->selectAttack();
-                        logMessage = "Click attacking ship";
+                        logMessage = "Click your attacking ship";
                         return;
                     }
                 } else {
@@ -500,7 +577,7 @@ private:
                         if (shipOptions[i].getGlobalBounds().contains(mousePos)) {
                             game->selectDeploy(i + 1);
                             showShipMenu = false;
-                            logMessage = "Click cell to deploy";
+                            logMessage = "Click a cell in your zone to deploy";
                             return;
                         }
                     }
@@ -512,15 +589,12 @@ private:
                     }
                 }
 
-                // Grid click
+                // Grid click — block clicks on the enemy zone
                 if (mousePos.x >= gridX && mousePos.x <= gridX + cols * cellSize &&
                     mousePos.y >= gridY && mousePos.y <= gridY + rows * cellSize) {
 
                     int clickedCol = (int)((mousePos.x - gridX) / cellSize);
                     int clickedRow = (int)((mousePos.y - gridY) / cellSize);
-
-                    if (game->getMode() == ActionMode::NONE &&
-                        upgradeBotton.getGlobalBounds().contains(mousePos) == false) {}
 
                     logMessage = game->gridClick(clickedRow, clickedCol);
 
@@ -619,68 +693,114 @@ private:
 
     void drawPlaying() {
         Army& current = game->getCurrentArmy();
-
-        // Celdas
-        for (int row = 0; row < rows; row++) {
+        Army& enemy   = game->getEnemyArmy();
+ 
+        for (int vrow = 0; vrow < rows; vrow++) {
             for (int col = 0; col < cols; col++) {
-                float x = gridX + col * cellSize;
-                float y = gridY + row * cellSize;
+                float x = gridX + col  * cellSize;
+                float y = gridY + vrow * cellSize;
                 cell.setPosition(sf::Vector2f(x, y));
-
-                Starship* ship = current.getShip(row, col);
-                if (ship != nullptr)
-                    cell.setFillColor(sf::Color(0, 180, 80));  // verde con nave
-                else if (row < 5)
-                    cell.setFillColor(sf::Color(15, 15, 40));  // enemigo
-                else
-                    cell.setFillColor(sf::Color(20, 60, 120)); // propio vacío
-
+                cell.setOutlineColor(sf::Color(80, 80, 80));
+ 
+                if (vrow >= 5) {
+                    Starship* ship = current.getShip(vrow, col);
+                    cell.setFillColor(ship ? sf::Color(0, 180, 80) : sf::Color(20, 60, 120));
+                } else {
+                    int realRow = 4 - vrow;
+                    if (enemy.getDeadShip(realRow, col) != nullptr)
+                        cell.setFillColor(sf::Color(100, 30, 30));
+                    else
+                        cell.setFillColor(sf::Color(15, 15, 40));
+                }
                 window.draw(cell);
             }
         }
-
-        sf::Text shipLabel(font, "", 18);
-        shipLabel.setOutlineColor(sf::Color::Black);
-        shipLabel.setOutlineThickness(1.f);
-
+ 
+        sf::RectangleShape zoneLine(sf::Vector2f(cols * cellSize, 2.f));
+        zoneLine.setFillColor(sf::Color(255, 200, 0, 180));
+        zoneLine.setPosition(sf::Vector2f(gridX, gridY + 5 * cellSize));
+        window.draw(zoneLine);
+ 
+        sf::Text ownLabel(font, "YOUR ZONE", 13);
+        ownLabel.setFillColor(sf::Color(100, 220, 100));
+        ownLabel.setOutlineColor(sf::Color::Black);
+        ownLabel.setOutlineThickness(1.f);
+        ownLabel.setPosition(sf::Vector2f(gridX + 4, gridY + 5 * cellSize + 4));
+        window.draw(ownLabel);
+ 
         for (Starship* ship : current.getAllShips()) {
             if (!ship->isAlive()) continue;
-            float x = gridX + ship->getCol() * cellSize;
-            float y = gridY + ship->getRow() * cellSize;
-            std::string label = ship->getAlgorithm().substr(0, 1);
-            shipLabel.setString(label);
-            shipLabel.setFillColor(sf::Color::Yellow);
-            shipLabel.setPosition(sf::Vector2f(
-                x + (cellSize - shipLabel.getLocalBounds().size.x) / 2,
-                y + (cellSize - shipLabel.getLocalBounds().size.y) / 2));
-            window.draw(shipLabel);
+            int vrow = ship->getRow();
+            drawShipAt(ship, vrow, sf::Color::White);
+            drawHPBar(ship, vrow, sf::Color(0, 255, 80));
         }
-
-        window.draw(blackScreen);
+ 
+        for (Starship* ship : enemy.getAllShips()) {
+            if (!ship->isAlive()) continue;
+            int vrow = 4 - ship->getRow();
+            drawShipAt(ship, vrow, sf::Color(255, 180, 180));
+            drawHPBar(ship, vrow, sf::Color(255, 80, 80));
+        }
+ 
         window.draw(hudDivision);
-
+ 
+        // HUD
         if (showShipMenu) {
             window.draw(shipMenuBox);
-            for (int i = 0; i < 6; i++)
-                window.draw(shipOptions[i]);
+            for (int i = 0; i < 6; i++) window.draw(shipOptions[i]);
         } else {
             window.draw(buyBotton);     window.draw(buyText);
             window.draw(moveBotton);    window.draw(moveText);
             window.draw(upgradeBotton); window.draw(upgradeText);
             window.draw(attackBotton);  window.draw(attackText);
         }
-
+ 
         apText.setString("AP: " + std::to_string(game->getAP()));
         moneyText.setString("$: " + std::to_string(current.getCredits()));
         turnText.setString("Turn: " + current.getName());
-
-        window.draw(apBox);      window.draw(apText);
-        window.draw(moneyBox);   window.draw(moneyText);
+ 
+        window.draw(apBox);         window.draw(apText);
+        window.draw(moneyBox);      window.draw(moneyText);
         window.draw(endTurnButton); window.draw(endTurnText);
         window.draw(turnText);
-
+ 
+        window.draw(colorTitle);
+        window.draw(colorOwnShips);   window.draw(colorOwnShipsText);
+        window.draw(colorEnemyShips); window.draw(colorEnemyShipsText);
+        window.draw(colorEmptyCells); window.draw(colorEmptyCellsText);
+ 
         logText.setString(logMessage);
         window.draw(logText);
+ 
+        // INTERFERENCIA DE RADAR — siempre encima, siempre en zona 0-4
+        sf::RectangleShape radarJam(sf::Vector2f(cols * cellSize, 5 * cellSize));
+        radarJam.setPosition(sf::Vector2f(gridX, gridY));
+        radarJam.setFillColor(sf::Color(0, 0, 0, 235));
+        window.draw(radarJam);
+ 
+        for (int i = 0; i < 5 * (int)cellSize; i += 4) {
+            sf::RectangleShape scanline(sf::Vector2f(cols * cellSize, 1.f));
+            scanline.setPosition(sf::Vector2f(gridX, gridY + i));
+            scanline.setFillColor(sf::Color(0, 255, 80, 18));
+            window.draw(scanline);
+        }
+ 
+        sf::Text jamLabel(font, "~ RADAR INTERFERENCE ~", 15);
+        jamLabel.setFillColor(sf::Color(80, 255, 80, 210));
+        jamLabel.setOutlineColor(sf::Color::Black);
+        jamLabel.setOutlineThickness(1.f);
+        jamLabel.setPosition(sf::Vector2f(
+            gridX + (cols * cellSize - jamLabel.getLocalBounds().size.x) / 2.f,
+            gridY + 5 * cellSize / 2.f - jamLabel.getLocalBounds().size.y));
+        window.draw(jamLabel);
+ 
+        sf::Text enemyLabel(font, "ENEMY", 13);
+        enemyLabel.setFillColor(sf::Color(255, 100, 100, 200));
+        enemyLabel.setOutlineColor(sf::Color::Black);
+        enemyLabel.setOutlineThickness(1.f);
+        enemyLabel.setPosition(sf::Vector2f(gridX + 4, gridY + 4));
+        window.draw(enemyLabel);
+
     }
 
     void drawWaiting() {
@@ -725,6 +845,10 @@ public:
         gameOverText(font, "", 0),
         winnerText(font, "", 0),
         restartText(font, "", 0),
+        colorTitle(font, "", 0),
+        colorOwnShipsText(font, "", 0),
+        colorEnemyShipsText(font, "", 0),
+        colorEmptyCellsText(font, "", 0),
         shipOptions{
             sf::Text(font, "", 0),
             sf::Text(font, "", 0),
@@ -739,7 +863,8 @@ public:
         gridX(0), gridY(0),
         cell(sf::Vector2f(0, 0)),
         statNormal(30, 100, 200),
-        startHover(60, 140, 255)
+        startHover(60, 140, 255),
+        shipSprite(texNova)
     {
         window.setFramerateLimit(60);
 
@@ -751,7 +876,14 @@ public:
             1200.f / backgroundTexture.getSize().x,
             800.f  / backgroundTexture.getSize().y));
 
-        if (!manzana.loadFromFile("manzana.jpg")) return;
+        if (!texNova.loadFromFile("nova.png"))     return;
+        if (!texPulsar.loadFromFile("pulsar.png")) return;
+        if (!texAegis.loadFromFile("aegis.png"))   return;
+        if (!texQuasar.loadFromFile("quasar.png")) return;
+        if (!texNebula.loadFromFile("nebula.png")) return;
+        if (!texVortix.loadFromFile("vortix.png")) return;
+
+        shipSprite.setTexture(texNova, true);
 
         initMenu();
         initNames();
@@ -796,8 +928,8 @@ public:
             window.clear();
             window.draw(background);
 
-            if (state == GameState::MENU)    drawMenu();
-            if (state == GameState::NAMES)   drawNames();
+            if (state == GameState::MENU) drawMenu();
+            if (state == GameState::NAMES) drawNames();
             if (state == GameState::PLAYING) drawPlaying();
             if (state == GameState::WAITING) drawWaiting();
             if (state == GameState::GAMEOVER) drawGameOver();

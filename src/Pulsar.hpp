@@ -110,6 +110,6 @@ class Pulsar : public IStarShipCore{
         }
 
         std::string algorithmName() const override{
-            return "Binary Search";
+            return "Pulsar (Binary Search)";
         }
 };

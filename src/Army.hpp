@@ -150,6 +150,11 @@ public:
         return true;
     }
 
+    Starship* getDeadShip(int row, int col) {
+        if (grid[row][col] != nullptr && !grid[row][col]->isAlive())
+            return grid[row][col];
+        return nullptr;
+    }
 
     bool upgrade(int row, int col){
         Starship* ship = getShip(row, col);

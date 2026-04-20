@@ -158,7 +158,7 @@ public:
 
 
     std::string algorithmName() const override{
-        return "BST (UNBALANCED)";
+        return "Vortix (BST (UNBALANCED))";
     }
 
 

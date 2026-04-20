@@ -205,7 +205,7 @@ class Quasar : public IStarShipCore {
         }
 
         std::string algorithmName() const override {
-            return "TREE AVL";
+            return "Quasar (TREE AVL)";
         }
 
 };
