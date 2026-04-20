@@ -137,7 +137,13 @@ public:
             return "No AP left!";
         }
 
-        bool isEnemyZone = (row < 5);
+        bool isEnemyZone;
+
+        if (currentTurn == 1) {
+            isEnemyZone = (row < 5);
+        } else {
+            isEnemyZone = (row >= 5);
+        }
 
         switch (mode){
 
@@ -202,8 +208,7 @@ public:
                 mode = ActionMode::ATTACK_FROM;
                 return "Click a cell in the enemy zone";
             }
-            int realEnemyRow = 4 - row;
-            int result = getCurrentArmy().attack(fromRow, fromCol, realEnemyRow, col, getEnemyArmy());
+            int result = getCurrentArmy().attack(fromRow, fromCol, row, col, getEnemyArmy());
             if (result == -1) { mode = ActionMode::ATTACK_FROM; return "Invalid attack"; }
             ap--;
             mode = ActionMode::NONE;
