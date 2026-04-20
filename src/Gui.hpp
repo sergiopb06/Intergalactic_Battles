@@ -111,17 +111,13 @@ private:
     // -------------------------
     //      COLORS 
     // -------------------------
-    sf::Text colorTitle;
+
     sf::RectangleShape colorOwnShips;
     sf::Text colorOwnShipsText;
     sf::RectangleShape colorEnemyShips;
     sf::Text colorEnemyShipsText;
     sf::RectangleShape colorEmptyCells;
     sf::Text colorEmptyCellsText;
-
-    // -------------------------
-    //      HELPERS
-    // -------------------------
  
     sf::Texture& getShipTexture(const std::string& algorithm) {
         if (algorithm.empty()) return texNova;
@@ -433,25 +429,21 @@ private:
             restartButton.getPosition().x + (260 - restartText.getLocalBounds().size.x) / 2,
             restartButton.getPosition().y + (60  - restartText.getLocalBounds().size.y) / 2));
 
-        // color
-        colorTitle = sf::Text(font, "color:", 14);
-        colorTitle.setFillColor(sf::Color(200, 200, 200));
-        colorTitle.setPosition(sf::Vector2f(btnX, 520.f));
         colorOwnShips = sf::RectangleShape(sf::Vector2f(14, 14));
         colorOwnShips.setFillColor(sf::Color(0, 180, 80));
-        colorOwnShips.setPosition(sf::Vector2f(btnX, 538.f));
+        colorOwnShips.setPosition(sf::Vector2f(btnX, 536.f));
         colorOwnShipsText = sf::Text(font, player1Name, 13);
         colorOwnShipsText.setFillColor(sf::Color(200,200,200));
         colorOwnShipsText.setPosition(sf::Vector2f(btnX + 18, 536.f));
         colorEnemyShips = sf::RectangleShape(sf::Vector2f(14, 14));
         colorEnemyShips.setFillColor(sf::Color(200, 50, 50));
-        colorEnemyShips.setPosition(sf::Vector2f(btnX + 100, 538.f));
+        colorEnemyShips.setPosition(sf::Vector2f(btnX + 90, 536.f));
         colorEnemyShipsText = sf::Text(font, player2Name, 13);
         colorEnemyShipsText.setFillColor(sf::Color(200,200,200));
-        colorEnemyShipsText.setPosition(sf::Vector2f(btnX + 118, 536.f));
+        colorEnemyShipsText.setPosition(sf::Vector2f(btnX + 108, 536.f));
         colorEmptyCells = sf::RectangleShape(sf::Vector2f(14, 14));
         colorEmptyCells.setFillColor(sf::Color(20, 60, 120));
-        colorEmptyCells.setPosition(sf::Vector2f(btnX + 170, 538.f));
+        colorEmptyCells.setPosition(sf::Vector2f(btnX + 170, 536.f));
         colorEmptyCellsText = sf::Text(font, "Empty", 13);
         colorEmptyCellsText.setFillColor(sf::Color(200,200,200));
         colorEmptyCellsText.setPosition(sf::Vector2f(btnX + 188, 536.f));
@@ -760,13 +752,24 @@ private:
         apText.setString("AP: " + std::to_string(game->getAP()));
         moneyText.setString("$: " + std::to_string(current.getCredits()));
         turnText.setString("Turn: " + current.getName());
+        colorOwnShipsText.setString(player1Name);
+        colorEnemyShipsText.setString(player2Name);
+
+        colorOwnShipsText.setPosition(sf::Vector2f(
+            colorOwnShips.getPosition().x + 18,
+            colorOwnShips.getPosition().y - 2
+        ));
+
+        colorEnemyShipsText.setPosition(sf::Vector2f(
+            colorEnemyShips.getPosition().x + 18,
+            colorEnemyShips.getPosition().y - 2
+        ));
  
         window.draw(apBox);         window.draw(apText);
         window.draw(moneyBox);      window.draw(moneyText);
         window.draw(endTurnButton); window.draw(endTurnText);
         window.draw(turnText);
  
-        window.draw(colorTitle);
         window.draw(colorOwnShips);   window.draw(colorOwnShipsText);
         window.draw(colorEnemyShips); window.draw(colorEnemyShipsText);
         window.draw(colorEmptyCells); window.draw(colorEmptyCellsText);
@@ -855,7 +858,6 @@ public:
         gameOverText(font, "", 0),
         winnerText(font, "", 0),
         restartText(font, "", 0),
-        colorTitle(font, "", 0),
         colorOwnShipsText(font, "", 0),
         colorEnemyShipsText(font, "", 0),
         colorEmptyCellsText(font, "", 0),
