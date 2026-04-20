@@ -1,0 +1,2220 @@
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,6)
+:Algorithm: Nova (Linear Search)
+Total Searches: 150
+Total Iterations: 7566
+Total CPU Time (micro seconds): 16.5
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (5,7)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 170
+Total Iterations: 999
+Total CPU Time (micro seconds): 12.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (5,4)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 180
+Total Iterations: 180
+Total CPU Time (micro seconds): 27.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (7,9)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 155
+Total Iterations: 941
+Total CPU Time (micro seconds): 10.4
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,1)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 164
+Total Iterations: 955
+Total CPU Time (micro seconds): 10.1
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (1,7)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 154
+Total Iterations: 154
+Total CPU Time (micro seconds): 24
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (1,9)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 156
+Total Iterations: 156
+Total CPU Time (micro seconds): 24.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (1,8)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 184
+Total Iterations: 184
+Total CPU Time (micro seconds): 28.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (0,1)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 170
+Total Iterations: 8373
+Total CPU Time (micro seconds): 53.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (7,0)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 151
+Total Iterations: 7202
+Total CPU Time (micro seconds): 46.9
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (6,6)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 129
+Total Iterations: 896
+Total CPU Time (micro seconds): 7.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (6,7)
+:Algorithm: Nova (Linear Search)
+Total Searches: 124
+Total Iterations: 6012
+Total CPU Time (micro seconds): 13.5
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (2,1)
+:Algorithm: Nova (Linear Search)
+Total Searches: 153
+Total Iterations: 7676
+Total CPU Time (micro seconds): 17.7
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (2,3)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 115
+Total Iterations: 791
+Total CPU Time (micro seconds): 5.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (0,9)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 126
+Total Iterations: 722
+Total CPU Time (micro seconds): 8.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,7)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 109
+Total Iterations: 630
+Total CPU Time (micro seconds): 12.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (6,5)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 111
+Total Iterations: 608
+Total CPU Time (micro seconds): 7.5
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (6,8)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 89
+Total Iterations: 89
+Total CPU Time (micro seconds): 13.3
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (5,3)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 93
+Total Iterations: 566
+Total CPU Time (micro seconds): 6.3
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (5,7)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 95
+Total Iterations: 95
+Total CPU Time (micro seconds): 14.7
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (0,5)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 102
+Total Iterations: 102
+Total CPU Time (micro seconds): 15.2
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (1,0)
+:Algorithm: Nova (Linear Search)
+Total Searches: 100
+Total Iterations: 4889
+Total CPU Time (micro seconds): 10.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (1,8)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 98
+Total Iterations: 98
+Total CPU Time (micro seconds): 15.1
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (0,9)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 85
+Total Iterations: 485
+Total CPU Time (micro seconds): 4.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (1,2)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 102
+Total Iterations: 4611
+Total CPU Time (micro seconds): 30.2
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,0)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 123
+Total Iterations: 687
+Total CPU Time (micro seconds): 12.5
+Upgrade History (max extracted): 98 97 
+=====================================
+Ship at (7,0)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 108
+Total Iterations: 108
+Total CPU Time (micro seconds): 17.7
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (5,8)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 115
+Total Iterations: 5844
+Total CPU Time (micro seconds): 37.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (7,2)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 116
+Total Iterations: 865
+Total CPU Time (micro seconds): 7.5
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (2,2)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 136
+Total Iterations: 136
+Total CPU Time (micro seconds): 21.2
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (1,2)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 105
+Total Iterations: 105
+Total CPU Time (micro seconds): 16.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (0,8)
+:Algorithm: Nova (Linear Search)
+Total Searches: 121
+Total Iterations: 4979
+Total CPU Time (micro seconds): 11.4
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (2,9)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 117
+Total Iterations: 117
+Total CPU Time (micro seconds): 18.6
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (2,3)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 138
+Total Iterations: 808
+Total CPU Time (micro seconds): 9.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,6)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 153
+Total Iterations: 7331
+Total CPU Time (micro seconds): 48.5
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (6,6)
+:Algorithm: Nova (Linear Search)
+Total Searches: 173
+Total Iterations: 8627
+Total CPU Time (micro seconds): 19.7
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (5,9)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 152
+Total Iterations: 883
+Total CPU Time (micro seconds): 15.6
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (7,5)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 171
+Total Iterations: 171
+Total CPU Time (micro seconds): 26.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (7,2)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 186
+Total Iterations: 1035
+Total CPU Time (micro seconds): 11.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (5,0)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 161
+Total Iterations: 7591
+Total CPU Time (micro seconds): 49.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (2,4)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 158
+Total Iterations: 896
+Total CPU Time (micro seconds): 17.3
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 
+=====================================
+Ship at (1,4)
+:Algorithm: Nova (Linear Search)
+Total Searches: 169
+Total Iterations: 7873
+Total CPU Time (micro seconds): 17.6
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (2,1)
+:Algorithm: Nova (Linear Search)
+Total Searches: 186
+Total Iterations: 9013
+Total CPU Time (micro seconds): 19.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (1,7)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 169
+Total Iterations: 964
+Total CPU Time (micro seconds): 11.5
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 87 86 
+=====================================
+Ship at (0,5)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 161
+Total Iterations: 7896
+Total CPU Time (micro seconds): 52.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 
+=====================================
+Ship at (0,6)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 164
+Total Iterations: 1491
+Total CPU Time (micro seconds): 10.3
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,3)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 118
+Total Iterations: 5846
+Total CPU Time (micro seconds): 37.7
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (6,7)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 121
+Total Iterations: 5694
+Total CPU Time (micro seconds): 37.2
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (7,0)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 108
+Total Iterations: 108
+Total CPU Time (micro seconds): 17
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (0,4)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 107
+Total Iterations: 599
+Total CPU Time (micro seconds): 7
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (1,6)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 131
+Total Iterations: 131
+Total CPU Time (micro seconds): 20.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (1,9)
+:Algorithm: Nova (Linear Search)
+Total Searches: 114
+Total Iterations: 5599
+Total CPU Time (micro seconds): 13
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (0,9)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 127
+Total Iterations: 982
+Total CPU Time (micro seconds): 7.7
+Upgrade History (max extracted): 98 97 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,0)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 183
+Total Iterations: 183
+Total CPU Time (micro seconds): 28.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (6,1)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 165
+Total Iterations: 165
+Total CPU Time (micro seconds): 25.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (6,9)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 169
+Total Iterations: 998
+Total CPU Time (micro seconds): 10.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (7,6)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 168
+Total Iterations: 1003
+Total CPU Time (micro seconds): 10
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (0,8)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 172
+Total Iterations: 1029
+Total CPU Time (micro seconds): 11.2
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (0,0)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 169
+Total Iterations: 1112
+Total CPU Time (micro seconds): 9.6
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (1,5)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 173
+Total Iterations: 994
+Total CPU Time (micro seconds): 19.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (0,9)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 170
+Total Iterations: 170
+Total CPU Time (micro seconds): 26.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (1,8)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 170
+Total Iterations: 989
+Total CPU Time (micro seconds): 10.5
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 87 86 85 84 
+=====================================
+Ship at (1,0)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 166
+Total Iterations: 166
+Total CPU Time (micro seconds): 26.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,6)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 116
+Total Iterations: 116
+Total CPU Time (micro seconds): 22.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (5,3)
+:Algorithm: Nova (Linear Search)
+Total Searches: 108
+Total Iterations: 5728
+Total CPU Time (micro seconds): 16.4
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (5,7)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 107
+Total Iterations: 4921
+Total CPU Time (micro seconds): 41
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,0)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 112
+Total Iterations: 680
+Total CPU Time (micro seconds): 9.1
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (2,6)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 113
+Total Iterations: 661
+Total CPU Time (micro seconds): 15.6
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (1,3)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 129
+Total Iterations: 859
+Total CPU Time (micro seconds): 9
+Upgrade History (max extracted): 98 97 
+=====================================
+Ship at (1,7)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 125
+Total Iterations: 880
+Total CPU Time (micro seconds): 8.5
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (7,5)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 146
+Total Iterations: 7438
+Total CPU Time (micro seconds): 47.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (6,2)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 142
+Total Iterations: 1044
+Total CPU Time (micro seconds): 8.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (7,2)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 135
+Total Iterations: 798
+Total CPU Time (micro seconds): 15.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (6,3)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 139
+Total Iterations: 139
+Total CPU Time (micro seconds): 21.4
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (6,7)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 134
+Total Iterations: 788
+Total CPU Time (micro seconds): 8.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,1)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 143
+Total Iterations: 864
+Total CPU Time (micro seconds): 8.7
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (0,2)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 140
+Total Iterations: 825
+Total CPU Time (micro seconds): 8.6
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (0,0)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 136
+Total Iterations: 7209
+Total CPU Time (micro seconds): 46.2
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (1,0)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 140
+Total Iterations: 836
+Total CPU Time (micro seconds): 8.8
+Upgrade History (max extracted): 98 97 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,0)
+:Algorithm: Nova (Linear Search)
+Total Searches: 129
+Total Iterations: 6597
+Total CPU Time (micro seconds): 15.1
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (7,5)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 120
+Total Iterations: 5694
+Total CPU Time (micro seconds): 37.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (5,7)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 115
+Total Iterations: 115
+Total CPU Time (micro seconds): 18.2
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (6,4)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 130
+Total Iterations: 6444
+Total CPU Time (micro seconds): 41.7
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (7,8)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 115
+Total Iterations: 5710
+Total CPU Time (micro seconds): 37.5
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (7,2)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 116
+Total Iterations: 897
+Total CPU Time (micro seconds): 7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,2)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 107
+Total Iterations: 618
+Total CPU Time (micro seconds): 11.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (0,9)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 134
+Total Iterations: 134
+Total CPU Time (micro seconds): 21
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (1,4)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 109
+Total Iterations: 109
+Total CPU Time (micro seconds): 17
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (1,3)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 125
+Total Iterations: 761
+Total CPU Time (micro seconds): 8.2
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (1,5)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 120
+Total Iterations: 5369
+Total CPU Time (micro seconds): 35.9
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,8)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 96
+Total Iterations: 4802
+Total CPU Time (micro seconds): 39.5
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (6,6)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 113
+Total Iterations: 847
+Total CPU Time (micro seconds): 9.6
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (7,6)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 102
+Total Iterations: 810
+Total CPU Time (micro seconds): 8.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (5,1)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 102
+Total Iterations: 588
+Total CPU Time (micro seconds): 8.4
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (6,8)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 108
+Total Iterations: 766
+Total CPU Time (micro seconds): 8.2
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (7,9)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 92
+Total Iterations: 92
+Total CPU Time (micro seconds): 18.5
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,8)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 95
+Total Iterations: 647
+Total CPU Time (micro seconds): 6.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (1,6)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 117
+Total Iterations: 676
+Total CPU Time (micro seconds): 15.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (0,2)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 98
+Total Iterations: 677
+Total CPU Time (micro seconds): 7.2
+Upgrade History (max extracted): 98 97 
+=====================================
+Ship at (2,6)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 102
+Total Iterations: 572
+Total CPU Time (micro seconds): 13.5
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (1,0)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 104
+Total Iterations: 5424
+Total CPU Time (micro seconds): 43.7
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (1,1)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 107
+Total Iterations: 648
+Total CPU Time (micro seconds): 9.3
+Upgrade History (max extracted): 98 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,3)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 93
+Total Iterations: 542
+Total CPU Time (micro seconds): 12.1
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (5,6)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 84
+Total Iterations: 549
+Total CPU Time (micro seconds): 6.3
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (6,6)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 93
+Total Iterations: 93
+Total CPU Time (micro seconds): 18.3
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (6,0)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 99
+Total Iterations: 572
+Total CPU Time (micro seconds): 13.1
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,8)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 94
+Total Iterations: 754
+Total CPU Time (micro seconds): 7.3
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (2,5)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 97
+Total Iterations: 636
+Total CPU Time (micro seconds): 6.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (1,6)
+:Algorithm: Nova (Linear Search)
+Total Searches: 97
+Total Iterations: 4247
+Total CPU Time (micro seconds): 12.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,9)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 165
+Total Iterations: 963
+Total CPU Time (micro seconds): 13.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 87 86 
+=====================================
+Ship at (7,2)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 170
+Total Iterations: 956
+Total CPU Time (micro seconds): 22
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (6,8)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 184
+Total Iterations: 1060
+Total CPU Time (micro seconds): 23.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (7,6)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 173
+Total Iterations: 1004
+Total CPU Time (micro seconds): 22.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (0,7)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 175
+Total Iterations: 1183
+Total CPU Time (micro seconds): 11.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (1,0)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 157
+Total Iterations: 916
+Total CPU Time (micro seconds): 11.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (1,5)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 158
+Total Iterations: 1046
+Total CPU Time (micro seconds): 10.5
+Upgrade History (max extracted): 98 97 96 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,2)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 112
+Total Iterations: 5278
+Total CPU Time (micro seconds): 42
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (7,3)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 110
+Total Iterations: 5119
+Total CPU Time (micro seconds): 33.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (5,9)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 102
+Total Iterations: 102
+Total CPU Time (micro seconds): 16.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (2,8)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 105
+Total Iterations: 5058
+Total CPU Time (micro seconds): 32.7
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (2,1)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 99
+Total Iterations: 551
+Total CPU Time (micro seconds): 10.3
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (1,4)
+:Algorithm: Nova (Linear Search)
+Total Searches: 112
+Total Iterations: 6028
+Total CPU Time (micro seconds): 13.4
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (2,5)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 98
+Total Iterations: 98
+Total CPU Time (micro seconds): 15
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (1,5)
+:Algorithm: Nova (Linear Search)
+Total Searches: 122
+Total Iterations: 5896
+Total CPU Time (micro seconds): 12.9
+Upgrade History (max extracted): 98 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,5)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 125
+Total Iterations: 863
+Total CPU Time (micro seconds): 7.7
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (6,5)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 134
+Total Iterations: 134
+Total CPU Time (micro seconds): 20.9
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (6,3)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 142
+Total Iterations: 985
+Total CPU Time (micro seconds): 8.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (7,3)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 136
+Total Iterations: 6677
+Total CPU Time (micro seconds): 43.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (6,1)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 133
+Total Iterations: 735
+Total CPU Time (micro seconds): 15
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (0,9)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 148
+Total Iterations: 1195
+Total CPU Time (micro seconds): 8.9
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (2,2)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 110
+Total Iterations: 110
+Total CPU Time (micro seconds): 17.3
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (0,3)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 132
+Total Iterations: 132
+Total CPU Time (micro seconds): 20.7
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (0,1)
+:Algorithm: Nova (Linear Search)
+Total Searches: 135
+Total Iterations: 6192
+Total CPU Time (micro seconds): 14.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (0,7)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 127
+Total Iterations: 5876
+Total CPU Time (micro seconds): 39.2
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,5)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 91
+Total Iterations: 4207
+Total CPU Time (micro seconds): 27.9
+Upgrade History (max extracted): 98 
+=====================================
+Ship at (7,5)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 82
+Total Iterations: 4146
+Total CPU Time (micro seconds): 26.7
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (5,9)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 78
+Total Iterations: 562
+Total CPU Time (micro seconds): 4.7
+Upgrade History (max extracted): 98 97 96 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,7)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 79
+Total Iterations: 552
+Total CPU Time (micro seconds): 4.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (2,8)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 90
+Total Iterations: 518
+Total CPU Time (micro seconds): 9.6
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (0,6)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 83
+Total Iterations: 484
+Total CPU Time (micro seconds): 5.2
+Upgrade History (max extracted): 98 97 96 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (7,7)
+:Algorithm: Nova (Linear Search)
+Total Searches: 121
+Total Iterations: 5667
+Total CPU Time (micro seconds): 13.2
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (7,2)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 119
+Total Iterations: 962
+Total CPU Time (micro seconds): 7.5
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (5,8)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 126
+Total Iterations: 5963
+Total CPU Time (micro seconds): 39.7
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (6,7)
+:Algorithm: Nova (Linear Search)
+Total Searches: 138
+Total Iterations: 7606
+Total CPU Time (micro seconds): 17.3
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (5,6)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 129
+Total Iterations: 731
+Total CPU Time (micro seconds): 13.8
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (2,1)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 131
+Total Iterations: 764
+Total CPU Time (micro seconds): 13.9
+Upgrade History (max extracted): 98 97 
+=====================================
+Ship at (2,2)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 136
+Total Iterations: 760
+Total CPU Time (micro seconds): 15.7
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (1,9)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 143
+Total Iterations: 1216
+Total CPU Time (micro seconds): 8.9
+Upgrade History (max extracted): 98 97 96 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,2)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 141
+Total Iterations: 141
+Total CPU Time (micro seconds): 22.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 87 86 85 
+=====================================
+Ship at (7,2)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 134
+Total Iterations: 134
+Total CPU Time (micro seconds): 21.2
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (7,6)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 146
+Total Iterations: 878
+Total CPU Time (micro seconds): 9.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (6,4)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 152
+Total Iterations: 152
+Total CPU Time (micro seconds): 24
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (7,7)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 121
+Total Iterations: 121
+Total CPU Time (micro seconds): 18.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (5,7)
+:Algorithm: Nova (Linear Search)
+Total Searches: 159
+Total Iterations: 8174
+Total CPU Time (micro seconds): 19.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,3)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 150
+Total Iterations: 7317
+Total CPU Time (micro seconds): 47.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (0,6)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 144
+Total Iterations: 798
+Total CPU Time (micro seconds): 14.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (2,4)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 148
+Total Iterations: 880
+Total CPU Time (micro seconds): 10.2
+Upgrade History (max extracted): 98 97 
+=====================================
+Ship at (1,6)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 151
+Total Iterations: 1013
+Total CPU Time (micro seconds): 8.5
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,0)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 94
+Total Iterations: 671
+Total CPU Time (micro seconds): 5.2
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (6,6)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 103
+Total Iterations: 5089
+Total CPU Time (micro seconds): 33.1
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (7,4)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 114
+Total Iterations: 825
+Total CPU Time (micro seconds): 6.7
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (6,7)
+:Algorithm: Nova (Linear Search)
+Total Searches: 110
+Total Iterations: 5085
+Total CPU Time (micro seconds): 12
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (6,8)
+:Algorithm: Nova (Linear Search)
+Total Searches: 111
+Total Iterations: 5697
+Total CPU Time (micro seconds): 12.5
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (0,2)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 106
+Total Iterations: 586
+Total CPU Time (micro seconds): 11.1
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (1,4)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 101
+Total Iterations: 702
+Total CPU Time (micro seconds): 5.2
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (1,1)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 112
+Total Iterations: 825
+Total CPU Time (micro seconds): 6.6
+Upgrade History (max extracted): 98 97 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,6)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 103
+Total Iterations: 5201
+Total CPU Time (micro seconds): 42.6
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (6,5)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 121
+Total Iterations: 875
+Total CPU Time (micro seconds): 9.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (6,2)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 115
+Total Iterations: 661
+Total CPU Time (micro seconds): 15
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,1)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 106
+Total Iterations: 623
+Total CPU Time (micro seconds): 14.3
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (0,6)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 111
+Total Iterations: 111
+Total CPU Time (micro seconds): 22.1
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (2,3)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 120
+Total Iterations: 5745
+Total CPU Time (micro seconds): 46
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,5)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 158
+Total Iterations: 7562
+Total CPU Time (micro seconds): 54.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (5,6)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 146
+Total Iterations: 1304
+Total CPU Time (micro seconds): 10.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (7,7)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 133
+Total Iterations: 1006
+Total CPU Time (micro seconds): 9.4
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (5,2)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 153
+Total Iterations: 891
+Total CPU Time (micro seconds): 18.4
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (6,8)
+:Algorithm: Nova (Linear Search)
+Total Searches: 154
+Total Iterations: 7479
+Total CPU Time (micro seconds): 19.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,3)
+:Algorithm: Nova (Linear Search)
+Total Searches: 141
+Total Iterations: 6850
+Total CPU Time (micro seconds): 17.5
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (0,7)
+:Algorithm: Nova (Linear Search)
+Total Searches: 152
+Total Iterations: 7024
+Total CPU Time (micro seconds): 18.8
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (0,9)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 139
+Total Iterations: 139
+Total CPU Time (micro seconds): 25.2
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (1,7)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 149
+Total Iterations: 149
+Total CPU Time (micro seconds): 26.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 
+=====================================
+Ship at (2,1)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 131
+Total Iterations: 5808
+Total CPU Time (micro seconds): 43.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (0,2)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 142
+Total Iterations: 787
+Total CPU Time (micro seconds): 16.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,4)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 170
+Total Iterations: 988
+Total CPU Time (micro seconds): 10.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (7,7)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 167
+Total Iterations: 7905
+Total CPU Time (micro seconds): 52.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (5,6)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 164
+Total Iterations: 916
+Total CPU Time (micro seconds): 17.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 87 86 
+=====================================
+Ship at (7,5)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 178
+Total Iterations: 1044
+Total CPU Time (micro seconds): 11.5
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 87 86 
+=====================================
+Ship at (6,3)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 178
+Total Iterations: 178
+Total CPU Time (micro seconds): 28
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (5,2)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 181
+Total Iterations: 8643
+Total CPU Time (micro seconds): 56.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (0,0)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 164
+Total Iterations: 7823
+Total CPU Time (micro seconds): 50.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (1,3)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 172
+Total Iterations: 172
+Total CPU Time (micro seconds): 26.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (1,1)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 157
+Total Iterations: 898
+Total CPU Time (micro seconds): 11.1
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (7,3)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 150
+Total Iterations: 1312
+Total CPU Time (micro seconds): 9.6
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (6,3)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 153
+Total Iterations: 891
+Total CPU Time (micro seconds): 16.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (5,3)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 166
+Total Iterations: 1174
+Total CPU Time (micro seconds): 9.2
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 87 86 85 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (0,7)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 158
+Total Iterations: 8069
+Total CPU Time (micro seconds): 52
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (0,1)
+:Algorithm: Nova (Linear Search)
+Total Searches: 152
+Total Iterations: 7066
+Total CPU Time (micro seconds): 16
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 
+=====================================
+Ship at (0,5)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 178
+Total Iterations: 1035
+Total CPU Time (micro seconds): 12.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (1,6)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 170
+Total Iterations: 170
+Total CPU Time (micro seconds): 26.2
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (1,7)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 154
+Total Iterations: 154
+Total CPU Time (micro seconds): 24
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,3)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 124
+Total Iterations: 717
+Total CPU Time (micro seconds): 9.7
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (7,5)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 119
+Total Iterations: 871
+Total CPU Time (micro seconds): 8.5
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (7,0)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 119
+Total Iterations: 119
+Total CPU Time (micro seconds): 21.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 
+=====================================
+Ship at (6,2)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 134
+Total Iterations: 753
+Total CPU Time (micro seconds): 15.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (7,1)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 137
+Total Iterations: 813
+Total CPU Time (micro seconds): 10.6
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (5,2)
+:Algorithm: Nova (Linear Search)
+Total Searches: 113
+Total Iterations: 5609
+Total CPU Time (micro seconds): 14.9
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,6)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 102
+Total Iterations: 102
+Total CPU Time (micro seconds): 18.2
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (0,9)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 126
+Total Iterations: 705
+Total CPU Time (micro seconds): 15.1
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (2,3)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 131
+Total Iterations: 782
+Total CPU Time (micro seconds): 9.5
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (0,7)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 129
+Total Iterations: 129
+Total CPU Time (micro seconds): 23
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (1,2)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 124
+Total Iterations: 952
+Total CPU Time (micro seconds): 8.3
+Upgrade History (max extracted): 98 97 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,3)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 132
+Total Iterations: 773
+Total CPU Time (micro seconds): 9.3
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (7,9)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 100
+Total Iterations: 768
+Total CPU Time (micro seconds): 6.7
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (7,2)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 110
+Total Iterations: 5768
+Total CPU Time (micro seconds): 39.3
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (6,7)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 98
+Total Iterations: 569
+Total CPU Time (micro seconds): 11
+Upgrade History (max extracted): 98 
+=====================================
+Ship at (6,0)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 93
+Total Iterations: 606
+Total CPU Time (micro seconds): 5.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (2,6)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 96
+Total Iterations: 557
+Total CPU Time (micro seconds): 11
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (0,4)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 98
+Total Iterations: 98
+Total CPU Time (micro seconds): 16.8
+Upgrade History (max extracted): 98 97 
+=====================================
+Ship at (0,5)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 98
+Total Iterations: 4696
+Total CPU Time (micro seconds): 32.2
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (1,8)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 109
+Total Iterations: 786
+Total CPU Time (micro seconds): 7.4
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (1,7)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 106
+Total Iterations: 5125
+Total CPU Time (micro seconds): 35.6
+Upgrade History (max extracted): 98 
+=====================================
+Ship at (0,7)
+:Algorithm: Nova (Linear Search)
+Total Searches: 91
+Total Iterations: 4719
+Total CPU Time (micro seconds): 11.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,2)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 144
+Total Iterations: 832
+Total CPU Time (micro seconds): 15.1
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (6,2)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 137
+Total Iterations: 921
+Total CPU Time (micro seconds): 8.2
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 87 
+=====================================
+Ship at (5,7)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 129
+Total Iterations: 747
+Total CPU Time (micro seconds): 8.7
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (5,1)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 135
+Total Iterations: 973
+Total CPU Time (micro seconds): 8.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (7,3)
+:Algorithm: Nova (Linear Search)
+Total Searches: 143
+Total Iterations: 6895
+Total CPU Time (micro seconds): 16.4
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (5,5)
+:Algorithm: Nova (Linear Search)
+Total Searches: 135
+Total Iterations: 5999
+Total CPU Time (micro seconds): 14.3
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (2,8)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 137
+Total Iterations: 137
+Total CPU Time (micro seconds): 20.7
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (0,3)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 138
+Total Iterations: 138
+Total CPU Time (micro seconds): 21.5
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (2,2)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 140
+Total Iterations: 6681
+Total CPU Time (micro seconds): 43.8
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (1,7)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 130
+Total Iterations: 130
+Total CPU Time (micro seconds): 20.3
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (5,9)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 108
+Total Iterations: 5021
+Total CPU Time (micro seconds): 35.3
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (5,6)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 107
+Total Iterations: 4984
+Total CPU Time (micro seconds): 35.4
+Upgrade History (max extracted): 98 
+=====================================
+Ship at (7,8)
+:Algorithm: Nova (Linear Search)
+Total Searches: 112
+Total Iterations: 5612
+Total CPU Time (micro seconds): 12.7
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (6,3)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 107
+Total Iterations: 615
+Total CPU Time (micro seconds): 12.5
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (5,4)
+:Algorithm: Nova (Linear Search)
+Total Searches: 115
+Total Iterations: 5408
+Total CPU Time (micro seconds): 13.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (1,5)
+:Algorithm: Nova (Linear Search)
+Total Searches: 125
+Total Iterations: 6295
+Total CPU Time (micro seconds): 14.5
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 
+=====================================
+Ship at (2,3)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 104
+Total Iterations: 610
+Total CPU Time (micro seconds): 6.8
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (2,0)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 109
+Total Iterations: 109
+Total CPU Time (micro seconds): 17.9
+Upgrade History (max extracted): 98 97 
+=====================================
+Ship at (2,1)
+:Algorithm: Nova (Linear Search)
+Total Searches: 98
+Total Iterations: 4770
+Total CPU Time (micro seconds): 11.2
+Upgrade History (max extracted): 98 97 96 
+=====================================
+Ship at (0,6)
+:Algorithm: Nova (Linear Search)
+Total Searches: 104
+Total Iterations: 5103
+Total CPU Time (micro seconds): 12.1
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,5)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 139
+Total Iterations: 6213
+Total CPU Time (micro seconds): 41.9
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (5,6)
+:Algorithm: Nova (Linear Search)
+Total Searches: 124
+Total Iterations: 5694
+Total CPU Time (micro seconds): 13.3
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (7,1)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 139
+Total Iterations: 818
+Total CPU Time (micro seconds): 10.3
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (0,8)
+:Algorithm: Nova (Linear Search)
+Total Searches: 141
+Total Iterations: 6717
+Total CPU Time (micro seconds): 15.4
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (0,9)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 147
+Total Iterations: 1095
+Total CPU Time (micro seconds): 9.9
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (0,2)
+:Algorithm: Nova (Linear Search)
+Total Searches: 146
+Total Iterations: 6502
+Total CPU Time (micro seconds): 15.4
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (2,4)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 147
+Total Iterations: 7465
+Total CPU Time (micro seconds): 47.9
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (0,7)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 138
+Total Iterations: 138
+Total CPU Time (micro seconds): 23.5
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (2,1)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 137
+Total Iterations: 1033
+Total CPU Time (micro seconds): 9.1
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,3)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 139
+Total Iterations: 1039
+Total CPU Time (micro seconds): 8.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (6,2)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 134
+Total Iterations: 134
+Total CPU Time (micro seconds): 21
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (6,9)
+:Algorithm: Nova (Linear Search)
+Total Searches: 139
+Total Iterations: 6696
+Total CPU Time (micro seconds): 15
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (5,6)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 145
+Total Iterations: 865
+Total CPU Time (micro seconds): 9.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+Ship at (5,1)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 136
+Total Iterations: 794
+Total CPU Time (micro seconds): 13.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 
+=====================================
+Ship at (7,0)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 154
+Total Iterations: 154
+Total CPU Time (micro seconds): 24.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (2,2)
+:Algorithm: Vortix (BST (UNBALANCED))
+Total Searches: 145
+Total Iterations: 1026
+Total CPU Time (micro seconds): 8.5
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (1,9)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 144
+Total Iterations: 6826
+Total CPU Time (micro seconds): 46
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (1,2)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 138
+Total Iterations: 138
+Total CPU Time (micro seconds): 22.1
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 88 
+=====================================
+
+
+=====================================
+   INTERGALACTIC BATTLES BATTLE LOG  
+=====================================
+Commander: A
+=====================================
+Ship at (6,1)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 173
+Total Iterations: 1021
+Total CPU Time (micro seconds): 11.4
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (6,3)
+:Algorithm: Quasar (TREE AVL)
+Total Searches: 172
+Total Iterations: 977
+Total CPU Time (micro seconds): 11.9
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (6,9)
+:Algorithm: Nova (Linear Search)
+Total Searches: 176
+Total Iterations: 8922
+Total CPU Time (micro seconds): 20.4
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (5,7)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 158
+Total Iterations: 158
+Total CPU Time (micro seconds): 25.7
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+Ship at (5,5)
+:Algorithm: Pulsar (Binary Search)
+Total Searches: 171
+Total Iterations: 1012
+Total CPU Time (micro seconds): 17.6
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (7,3)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 188
+Total Iterations: 9591
+Total CPU Time (micro seconds): 63.5
+Upgrade History (max extracted): 98 97 96 95 
+=====================================
+
+
+Commander: Z
+=====================================
+Ship at (2,9)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 171
+Total Iterations: 7918
+Total CPU Time (micro seconds): 53.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 91 90 89 
+=====================================
+Ship at (1,7)
+:Algorithm: Nova (Linear Search)
+Total Searches: 180
+Total Iterations: 9108
+Total CPU Time (micro seconds): 22.6
+Upgrade History (max extracted): 98 97 96 95 94 93 
+=====================================
+Ship at (2,5)
+:Algorithm: X Nebula (MinHeap - linear arbitrary search)
+Total Searches: 164
+Total Iterations: 7232
+Total CPU Time (micro seconds): 48.5
+Upgrade History (max extracted): 98 97 96 95 94 
+=====================================
+Ship at (2,1)
+:Algorithm: Aegis (Set - simulated 1 iteration lookup)
+Total Searches: 153
+Total Iterations: 153
+Total CPU Time (micro seconds): 23.8
+Upgrade History (max extracted): 98 97 96 95 94 93 92 
+=====================================
+
+
